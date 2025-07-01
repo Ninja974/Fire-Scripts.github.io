@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fire Scripts</title>
   <link rel="icon" href="shurkijen.png" type="image/png"/>
 
@@ -13,22 +14,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
-  <!-- tiny-slider -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"/>
-
+  <!-- Your custom styles -->
   <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
   <div id="tsparticles"></div>
 
+  <!-- NAVBAR -->
   <nav class="nav">
     <ul>
       <li><a href="#hero">Home</a></li>
       <li><a href="#features">Features</a></li>
-      <li><a href="#vouches">Testimonials</a></li>
+      <!-- Testimonials removed -->
     </ul>
   </nav>
 
+  <!-- HERO -->
   <header id="hero" class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content animate__animated animate__fadeInDown">
@@ -45,6 +46,7 @@
     </div>
   </header>
 
+  <!-- FEATURES -->
   <section id="features" class="features">
     <h2 data-aos="zoom-in-up">Why Choose Us?</h2>
     <div class="cards">
@@ -66,72 +68,37 @@
     </div>
   </section>
 
-  <section id="vouches" class="testimonials">
-    <h2 data-aos="fade-up">Testimonials</h2>
-    <div class="vouches-slider tns-slider"></div>
-  </section>
-
+  <!-- FOOTER -->
   <footer data-aos="fade-up">
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
   </footer>
 
-  <!-- libs -->
+  <!-- LIBRARIES -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.3/tsparticles.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
 
+  <!-- INIT SCRIPTS -->
   <script>
-    // particles
+    // Partículas
     tsParticles.load("tsparticles", {
-      fpsLimit:60,
-      particles:{number:{value:80},size:{value:3},move:{speed:1},line_linked:{enable:true,distance:150,opacity:0.2}},
-      detectRetina:true
+      fpsLimit: 60,
+      particles: { number: { value: 80 }, size: { value: 3 }, move: { speed: 1 }, line_linked: { enable: true, distance: 150, opacity: 0.2 } },
+      detectRetina: true
     });
 
-    // typed
+    // Typed.js
     new Typed("#subtitle", {
-      strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."],
-      typeSpeed:70,backSpeed:30,backDelay:2000,loop:true
+      strings: ["Premium scripts crafted with 💙.","Level up your game. Join us now."],
+      typeSpeed: 70, backSpeed: 30, backDelay: 2000, loop: true
     });
 
-    // tilt
-    VanillaTilt.init(document.querySelectorAll(".card"),{speed:400,glare:true,"max-glare":0.2});
+    // Vanilla Tilt
+    VanillaTilt.init(document.querySelectorAll(".card"), { speed: 400, glare: true, "max-glare": 0.2 });
 
     // AOS
-    AOS.init({once:true,duration:800});
-
-    // load your vouches.json and build carousel
-    fetch("vouches.json")
-      .then(r=>r.json())
-      .then(vouches=>{
-        const slider = document.querySelector(".vouches-slider");
-        vouches.forEach(v=>{
-          const card=document.createElement("div");
-          card.className="card";
-          card.innerHTML=`
-            <div class="vouch-header">
-              ${v.avatar?`<img src="${v.avatar}" alt="${v.user}">`:``}
-              <strong>${v.user}</strong>
-            </div>
-            <p>"${v.content}"</p>
-          `;
-          slider.appendChild(card);
-        });
-        tns({
-          container:".vouches-slider",
-          items:1,slideBy:"page",
-          autoplay:true,autoplayButtonOutput:false,
-          controls:true,nav:true,gutter:20,
-          responsive:{
-            640:{items:1},
-            900:{items:2},
-            1200:{items:3}
-          }
-        });
-      })
-      .catch(e=>console.error("vouches load error:",e));
+    AOS.init({ once: true, duration: 800 });
   </script>
 </body>
 </html>
