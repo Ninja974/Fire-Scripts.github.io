@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap');
-
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -7,41 +6,42 @@ body {
   color: #fff;
 }
 
+/* HERO */
 .hero {
   position: relative;
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1614677250187-2a5faba17f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1614677250187-2a5faba17f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover fixed no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-
 .hero-overlay {
-  position: absolute;
-  top:0; left:0; right:0; bottom:0;
+  position: absolute; top:0; left:0; right:0; bottom:0;
   background: rgba(0,0,0,0.6);
 }
-
 .hero-content {
   position: relative;
   max-width: 800px;
   padding: 40px;
   z-index: 2;
-  animation: fadeInUp 1s ease;
 }
-
 .hero-content h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 3em;
+  margin-bottom: 20px;
   text-shadow: 2px 2px 8px #000;
 }
-
-.hero-content p {
-  font-size: 1.3em;
-  margin-bottom: 40px;
+.typewriter {
+  font-size: 1.2em;
+  height: 1.4em;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .1em solid #fff;
+  margin-bottom: 30px;
 }
 
+/* BUTTONS */
 .buttons .btn {
   display: inline-block;
   margin: 10px;
@@ -50,77 +50,51 @@ body {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
-  transition: 0.4s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform .3s, box-shadow .3s;
+}
+.btn.discord { background: #5865F2; }
+.btn.buy { background: #00FFAB; color: #000; }
+.buttons .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
-.btn.discord {
-  background: #5865F2;
-}
-
-.btn.discord:hover {
-  background: #4752c4;
-}
-
-.btn.buy {
-  background: #00FFAB;
-  color: #000;
-}
-
-.btn.buy:hover {
-  background: #00d68c;
-}
-
+/* FEATURES */
 .features {
-  text-align: center;
   padding: 80px 20px;
   background: #111;
+  text-align: center;
 }
-
 .features h2 {
   font-size: 2.5em;
   margin-bottom: 50px;
 }
-
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
 }
-
 .card {
   background: #1c1f24;
   padding: 30px;
   border-radius: 12px;
   width: 250px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: fadeInUp 1s ease forwards;
+  transition: transform .3s, box-shadow .3s;
 }
-
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
-
 .card i {
   font-size: 2em;
   margin-bottom: 15px;
   color: #00FFAB;
 }
 
-.card h3 {
-  margin-bottom: 10px;
-}
-
+/* FOOTER */
 footer {
-  text-align: center;
   padding: 40px 20px;
   background: #0b0c10;
   color: #aaa;
-}
-
-@keyframes fadeInUp {
-  0% {opacity:0; transform: translateY(20px);}
-  100% {opacity:1; transform: translateY(0);}
 }
