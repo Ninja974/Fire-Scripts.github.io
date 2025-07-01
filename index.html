@@ -10,14 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  <!-- Animations & AOS -->
+  <!-- Animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
-  <!-- Custom Styles -->
+  <!-- Your custom styles -->
   <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
+  <!-- Partículas de fondo -->
   <div id="tsparticles"></div>
 
   <!-- NAVBAR -->
@@ -36,38 +37,15 @@
       <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
       <span id="subtitle" class="typewriter"></span>
       <div class="buttons">
-        <a href="https://discord.gg/ry9e3kSb3A"
-           target="_blank"
-           class="btn discord"
-           data-aos="fade-right">
+        <a href="https://discord.gg/ry9e3kSb3A" target="_blank" class="btn discord" data-aos="fade-right">
           <i class="fa-brands fa-discord"></i> Join Discord
         </a>
-        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea"
-           target="_blank"
-           class="btn key"
-           data-aos="fade-up">
+        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" target="_blank" class="btn key" data-aos="fade-up">
           <img src="workink-logo.png" alt="Work.ink" class="btn-icon" /> Get Key
         </a>
-        <!-- Buy Script eliminado -->
       </div>
     </div>
   </header>
-
-  <!-- SCRIPT SECTION -->
-  <section id="script" class="script-section" data-aos="fade-up">
-    <div class="cards">
-      <div class="card script-card">
-        <h2>🚀 Script Loader</h2>
-        <p>Introduce tu clave y copia tu loader:</p>
-        <div class="script-form">
-          <input type="text" id="scriptKey" placeholder="Enter your key" />
-          <button id="generateBtn" class="btn key">Generate</button>
-        </div>
-        <pre><code id="scriptCode">-- your generated loader will appear here --</code></pre>
-        <button id="copyBtn" class="btn discord">Copy to Clipboard</button>
-      </div>
-    </div>
-  </section>
 
   <!-- FEATURES -->
   <section id="features" class="features">
@@ -91,6 +69,22 @@
     </div>
   </section>
 
+  <!-- SCRIPT LOADER -->
+  <section id="script" class="script-section">
+    <div class="container">
+      <div class="card script-card" data-aos="fade-up">
+        <h2>🚀 Script Loader</h2>
+        <p>Introduce tu clave y copia tu loader:</p>
+        <div class="script-form">
+          <input type="text" id="scriptKey" placeholder="Enter your key" />
+          <button id="generateBtn" class="btn key">Generate</button>
+        </div>
+        <pre><code id="scriptCode">-- your generated loader will appear here --</code></pre>
+        <button id="copyBtn" class="btn discord">Copy to Clipboard</button>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer data-aos="fade-up">
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
@@ -104,39 +98,38 @@
 
   <!-- INIT SCRIPTS -->
   <script>
+    // Partículas
     tsParticles.load("tsparticles", {
       fpsLimit:60,
       particles:{ number:{value:80}, size:{value:3}, move:{speed:1}, line_linked:{enable:true,distance:150,opacity:0.2} },
       detectRetina:true
     });
 
+    // Typed.js
     new Typed("#subtitle", {
       strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."],
       typeSpeed:70, backSpeed:30, backDelay:2000, loop:true
     });
 
-    VanillaTilt.init(document.querySelectorAll(".card"), {
-      speed:400, glare:true, "max-glare":0.2
-    });
+    // Vanilla Tilt
+    VanillaTilt.init(document.querySelectorAll(".card"), { speed:400, glare:true, "max-glare":0.2 });
 
+    // AOS
     AOS.init({ once:true, duration:800 });
 
-    const tpl = key => 
-`script_key="${key}";
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/acdced2352def79bef163e2db39d2ec5.lua"))()`;
-
-    document.getElementById("generateBtn").onclick = () => {
+    // Loader logic
+    document.getElementById("generateBtn").addEventListener("click", () => {
       const key = document.getElementById("scriptKey").value.trim();
-      document.getElementById("scriptCode").innerText = key
-        ? tpl(key)
-        : "-- Please enter your key above --";
-    };
-
-    document.getElementById("copyBtn").onclick = () => {
-      navigator.clipboard.writeText(
-        document.getElementById("scriptCode").innerText
-      ).then(()=>alert("Copied!"));
-    };
+      const codeEl = document.getElementById("scriptCode");
+      if (!key) return alert("Please enter your key.");
+      const loader = `script_key="${key}";\nloadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/acdced2352def79bef163e2db39d2ec5.lua"))()`;
+      codeEl.textContent = loader;
+    });
+    document.getElementById("copyBtn").addEventListener("click", () => {
+      const text = document.getElementById("scriptCode").textContent;
+      navigator.clipboard.writeText(text);
+      alert("Copied!");
+    });
   </script>
 </body>
 </html>
