@@ -1,47 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
-  background: linear-gradient(135deg, #141e30, #243b55);
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
   color: #fff;
-  text-align: center;
-  padding: 50px;
 }
 
-.container {
+.hero {
+  height: 100vh;
+  background: linear-gradient(270deg, #141e30, #243b55, #141e30);
+  background-size: 600% 600%;
+  animation: gradient 10s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.content {
   background: rgba(255, 255, 255, 0.05);
-  padding: 40px;
-  border-radius: 15px;
+  padding: 60px;
+  border-radius: 20px;
   backdrop-filter: blur(10px);
 }
 
 h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+  font-size: 2.8em;
+  margin-bottom: 15px;
 }
 
 p {
-  margin-bottom: 30px;
   font-size: 1.2em;
+  margin-bottom: 40px;
 }
 
 .buttons .btn {
   display: inline-block;
   margin: 10px;
-  padding: 15px 30px;
-  color: #fff;
-  text-decoration: none;
-  border: 2px solid #00c6ff;
+  padding: 15px 35px;
   border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
   transition: 0.3s;
 }
 
-.buttons .btn:hover {
-  background: #00c6ff;
+.btn.discord {
+  border: 2px solid #5865F2;
 }
 
-.buy-btn {
-  border-color: #00ff9d;
+.btn.discord:hover {
+  background: #5865F2;
 }
 
-.buy-btn:hover {
-  background: #00ff9d;
+.btn.buy {
+  border: 2px solid #00FFAB;
+}
+
+.btn.buy:hover {
+  background: #00FFAB;
+  color: #000;
+}
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
