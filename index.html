@@ -48,26 +48,25 @@
            data-aos="fade-up">
           <img src="workink-logo.png" alt="Work.ink" class="btn-icon" /> Get Key
         </a>
-        <a href="https://www.paypal.com/paypalme/FireScripts/60"
-           target="_blank"
-           class="btn buy"
-           data-aos="fade-left">
-          <i class="fa-solid fa-cart-shopping"></i> Buy Script
-        </a>
+        <!-- Buy Script eliminado -->
       </div>
     </div>
   </header>
 
   <!-- SCRIPT SECTION -->
   <section id="script" class="script-section" data-aos="fade-up">
-    <h2>Script Loader</h2>
-    <p>Introduce tu clave y genera el loader listo para copiar:</p>
-    <div class="script-form">
-      <input type="text" id="scriptKey" placeholder="Enter your key" />
-      <button id="generateBtn" class="btn key">Generate</button>
+    <div class="cards">
+      <div class="card script-card">
+        <h2>🚀 Script Loader</h2>
+        <p>Introduce tu clave y copia tu loader:</p>
+        <div class="script-form">
+          <input type="text" id="scriptKey" placeholder="Enter your key" />
+          <button id="generateBtn" class="btn key">Generate</button>
+        </div>
+        <pre><code id="scriptCode">-- your generated loader will appear here --</code></pre>
+        <button id="copyBtn" class="btn discord">Copy to Clipboard</button>
+      </div>
     </div>
-    <pre><code id="scriptCode">-- your generated loader will appear here --</code></pre>
-    <button id="copyBtn" class="btn buy">Copy to Clipboard</button>
   </section>
 
   <!-- FEATURES -->
@@ -105,33 +104,23 @@
 
   <!-- INIT SCRIPTS -->
   <script>
-    // Partículas
     tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      particles: {
-        number: { value: 80 },
-        size: { value: 3 },
-        move: { speed: 1 },
-        line_linked: { enable: true, distance: 150, opacity: 0.2 }
-      },
-      detectRetina: true
+      fpsLimit:60,
+      particles:{ number:{value:80}, size:{value:3}, move:{speed:1}, line_linked:{enable:true,distance:150,opacity:0.2} },
+      detectRetina:true
     });
 
-    // Typed.js
     new Typed("#subtitle", {
-      strings: ["Premium scripts crafted with 💙.","Level up your game. Join us now."],
-      typeSpeed: 70, backSpeed: 30, backDelay: 2000, loop: true
+      strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."],
+      typeSpeed:70, backSpeed:30, backDelay:2000, loop:true
     });
 
-    // Vanilla Tilt
     VanillaTilt.init(document.querySelectorAll(".card"), {
-      speed: 400, glare: true, "max-glare": 0.2
+      speed:400, glare:true, "max-glare":0.2
     });
 
-    // AOS
-    AOS.init({ once: true, duration: 800 });
+    AOS.init({ once:true, duration:800 });
 
-    // Generador de loader
     const tpl = key => 
 `script_key="${key}";
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/acdced2352def79bef163e2db39d2ec5.lua"))()`;
@@ -144,10 +133,9 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/acdced2352def7
     };
 
     document.getElementById("copyBtn").onclick = () => {
-      const code = document.getElementById("scriptCode").innerText;
-      navigator.clipboard.writeText(code)
-        .then(()=> alert("Copied to clipboard!"))
-        .catch(()=> alert("Copy failed"));
+      navigator.clipboard.writeText(
+        document.getElementById("scriptCode").innerText
+      ).then(()=>alert("Copied!"));
     };
   </script>
 </body>
