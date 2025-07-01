@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <!-- Título que aparece en la pestaña -->
   <title>Fire Scripts</title>
-  
-  <!-- Favicon: ruta RELATIVA -->
   <link rel="icon" href="shurkijen.png" type="image/png" />
-  
-  <!-- Fuentes e iconos -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Animate.css, AOS, style.css -->
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Animate.css & AOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-  <link href="style.css" rel="stylesheet">
-</head>
 
+  <!-- tiny-slider CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"/>
+
+  <!-- Your custom styles -->
+  <link href="style.css" rel="stylesheet"/>
+</head>
 <body>
 
-  <!-- Partículas -->
+  <!-- Particles -->
   <div id="tsparticles"></div>
 
   <!-- NAVBAR -->
@@ -76,7 +76,8 @@
   <!-- TESTIMONIALS -->
   <section id="vouches" class="testimonials">
     <h2 data-aos="fade-up">Testimonials</h2>
-    <div id="vouches-list" class="cards"></div>
+    <!-- this will become our carousel container -->
+    <div class="vouches-slider tns-slider"></div>
   </section>
 
   <!-- FOOTER -->
@@ -84,54 +85,70 @@
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
   </footer>
 
-  <!-- LIBS -->
+  <!-- LIBRARIES -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.3/tsparticles.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
 
   <!-- INIT SCRIPTS -->
   <script>
-    // Partículas
+    // Particles
     tsParticles.load("tsparticles", {
-      fpsLimit:60,
-      particles:{number:{value:80},size:{value:3},move:{speed:1},line_linked:{enable:true,distance:150,opacity:0.2}},
-      detectRetina:true
+      fpsLimit: 60,
+      particles: { number: { value: 80 }, size: { value: 3 }, move: { speed: 1 }, line_linked: { enable: true, distance: 150, opacity: 0.2 } },
+      detectRetina: true
     });
 
-    // Efecto máquina de escribir
+    // Typed.js
     new Typed("#subtitle", {
-      strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."],
-      typeSpeed:70, backSpeed:30, backDelay:2000, loop:true
+      strings: ["Premium scripts crafted with 💙.", "Level up your game. Join us now."],
+      typeSpeed: 70, backSpeed: 30, backDelay: 2000, loop: true
     });
 
-    // Tilt en tarjetas
-    VanillaTilt.init(document.querySelectorAll(".card"), { speed:400, glare:true, "max-glare":0.2 });
+    // Vanilla Tilt
+    VanillaTilt.init(document.querySelectorAll(".card"), { speed: 400, glare: true, "max-glare": 0.2 });
 
-    // AOS (scroll animations)
-    AOS.init({ once:true, duration:800 });
+    // AOS
+    AOS.init({ once: true, duration: 800 });
 
-    // *** Fetch real vouches desde el JSON ***
+    // Fetch & build carousel from vouches.json
     fetch('/vouches.json')
-      .then(res => res.json())
+      .then(r => r.json())
       .then(vouches => {
-        const container = document.getElementById("vouches-list");
-        vouches.forEach((v, i) => {
-          const card = document.createElement("div");
-          card.className = "card";
-          card.setAttribute("data-aos", "fade-up");
-          card.setAttribute("data-aos-delay", i * 100);
-          card.innerHTML = `
+        const slider = document.querySelector('.vouches-slider');
+        vouches.forEach(v => {
+          const slide = document.createElement('div');
+          slide.className = 'card';
+          slide.innerHTML = `
             <div class="vouch-header">
-              ${v.avatar ? `<img src="${v.avatar}">` : ""}
+              ${v.avatar ? `<img src="${v.avatar}" alt="${v.user}">` : ''}
               <strong>${v.user}</strong>
             </div>
             <p>"${v.content}"</p>
           `;
-          container.appendChild(card);
+          slider.appendChild(slide);
+        });
+
+        // Init tiny‐slider
+        tns({
+          container: '.vouches-slider',
+          items: 1,
+          slideBy: 'page',
+          autoplay: true,
+          autoplayButtonOutput: false,
+          controls: true,
+          nav: true,
+          gutter: 20,
+          responsive: {
+            640:  { items: 1 },
+            900:  { items: 2 },
+            1200: { items: 3 }
+          }
         });
       })
-      .catch(err => console.error("Error cargando vouches:", err));
+      .catch(err => console.error('Error loading vouches:', err));
   </script>
 </body>
 </html>
