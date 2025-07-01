@@ -9,14 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Animate.css, AOS, tsParticles, Typed.js, VanillaTilt -->
+  <!-- Animate.css, AOS, style.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Partículas de fondo -->
+  <!-- Partículas -->
   <div id="tsparticles"></div>
 
   <!-- NAVBAR -->
@@ -51,12 +51,12 @@
     <div class="cards">
       <div class="card" data-tilt data-tilt-max="15" data-aos="flip-left">
         <i class="fa-solid fa-bolt"></i>
-        <h3>Fast & Reliable</h3>
+        <h3>Fast &amp; Reliable</h3>
         <p>Optimized for top performance.</p>
       </div>
       <div class="card" data-tilt data-tilt-max="15" data-aos="flip-left" data-aos-delay="100">
         <i class="fa-solid fa-shield"></i>
-        <h3>Secure & Safe</h3>
+        <h3>Secure &amp; Safe</h3>
         <p>Safe code, updated often.</p>
       </div>
       <div class="card" data-tilt data-tilt-max="15" data-aos="flip-left" data-aos-delay="200">
@@ -67,7 +67,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS / VOUCHES -->
+  <!-- TESTIMONIALS -->
   <section id="vouches" class="testimonials">
     <h2 data-aos="fade-up">Testimonials</h2>
     <div id="vouches-list" class="cards"></div>
@@ -78,68 +78,39 @@
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- LIBS -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.3/tsparticles.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- INIT SCRIPTS -->
   <script>
-    // 1) Partículas
+    // Partículas
     tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      particles: {
-        number: { value: 80 },
-        size: { value: 3 },
-        move: { speed: 1 },
-        line_linked: { enable: true, distance: 150, opacity: 0.2 }
-      },
-      detectRetina: true
+      fpsLimit:60,
+      particles:{number:{value:80},size:{value:3},move:{speed:1},line_linked:{enable:true,distance:150,opacity:0.2}},
+      detectRetina:true
     });
-
-    // 2) Typed subtitle
-    new Typed("#subtitle", {
-      strings: ["Premium scripts crafted with 💙.", "Level up your game. Join us now."],
-      typeSpeed: 70,
-      backSpeed: 30,
-      backDelay: 2000,
-      loop: true
+    // Typewriter
+    new Typed("#subtitle", { strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."], typeSpeed:70, backSpeed:30, backDelay:2000, loop:true });
+    // Tilt cards
+    VanillaTilt.init(document.querySelectorAll(".card"), { speed:400, glare:true, "max-glare":0.2 });
+    // AOS
+    AOS.init({ once:true, duration:800 });
+    // Vouches manual (ejemplo)
+    const demo = [
+      { user:"Nooaahh", avatar:"", content:"I vouch for @N1NJA974 the most reliable seller I know" },
+      { user:"Sordid", avatar:"", content:"I vouch for @N1NJA974 FAST" },
+      { user:"Moon", avatar:"", content:"I vouch for @N1NJA974, he's the best seller out there." }
+    ];
+    const container = document.getElementById("vouches-list");
+    demo.forEach((v,i) => {
+      const c = document.createElement("div");
+      c.className="card"; c.setAttribute("data-aos","fade-up"); c.setAttribute("data-aos-delay",i*100);
+      c.innerHTML=`<div class="vouch-header"><img src="${v.avatar}" onerror="this.style.display='none'"><strong>${v.user}</strong></div><p>"${v.content}"</p>`;
+      container.appendChild(c);
     });
-
-    // 3) Tilt effect on cards
-    VanillaTilt.init(document.querySelectorAll(".card"), {
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2
-    });
-
-    // 4) AOS init
-    AOS.init({ once: true, duration: 800 });
-
-    // 5) Load vouches from your serverless endpoint
-    async function loadVouches() {
-      try {
-        const res = await fetch('/.netlify/functions/get-vouches');
-        const v = await res.json();
-        const container = document.getElementById('vouches-list');
-        v.forEach((item, i) => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.setAttribute('data-aos', 'fade-up');
-          card.setAttribute('data-aos-delay', i * 100);
-          card.innerHTML = `
-            <div class="vouch-header">
-              <img src="${item.avatar}" alt="${item.user}" onerror="this.style.display='none'"/>
-              <strong>${item.user}</strong>
-            </div>
-            <p>"${item.content}"</p>
-          `;
-          container.append(card);
-        });
-      } catch(e) {
-        console.error('Error loading vouches', e);
-      }
-    }
-    loadVouches();
   </script>
 </body>
 </html>
