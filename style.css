@@ -1,40 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap');
 
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  color: #fff;
   background: #0b0c10;
+  color: #fff;
 }
 
 .hero {
+  position: relative;
   height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-    url('https://images.unsplash.com/photo-1581091012184-5c4a6b3f7b2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')
-    center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1614677250187-2a5faba17f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
+.hero-overlay {
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.6);
+}
+
 .hero-content {
+  position: relative;
   max-width: 800px;
   padding: 40px;
-  background: rgba(0,0,0,0.4);
-  border-radius: 15px;
-  animation: fadeIn 2s ease;
+  z-index: 2;
+  animation: fadeInUp 1s ease;
 }
 
-h1 {
+.hero-content h1 {
+  font-family: 'Orbitron', sans-serif;
   font-size: 3em;
-  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px #000;
 }
 
-p {
-  font-size: 1.2em;
+.hero-content p {
+  font-size: 1.3em;
   margin-bottom: 40px;
-  line-height: 1.5;
 }
 
 .buttons .btn {
@@ -45,35 +50,36 @@ p {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
-  transition: 0.3s;
+  transition: 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .btn.discord {
-  border: 2px solid #5865F2;
-}
-
-.btn.discord:hover {
   background: #5865F2;
 }
 
-.btn.buy {
-  border: 2px solid #00FFAB;
+.btn.discord:hover {
+  background: #4752c4;
 }
 
-.btn.buy:hover {
+.btn.buy {
   background: #00FFAB;
   color: #000;
 }
 
+.btn.buy:hover {
+  background: #00d68c;
+}
+
 .features {
-  padding: 60px 20px;
   text-align: center;
-  background: #121416;
+  padding: 80px 20px;
+  background: #111;
 }
 
 .features h2 {
   font-size: 2.5em;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .cards {
@@ -84,15 +90,17 @@ p {
 }
 
 .card {
-  background: #1f2328;
+  background: #1c1f24;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 12px;
   width: 250px;
-  transition: transform 0.3s;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 1s ease forwards;
 }
 
 .card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
 .card i {
@@ -107,13 +115,12 @@ p {
 
 footer {
   text-align: center;
-  padding: 30px 20px;
+  padding: 40px 20px;
   background: #0b0c10;
-  font-size: 0.9em;
   color: #aaa;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+@keyframes fadeInUp {
+  0% {opacity:0; transform: translateY(20px);}
+  100% {opacity:1; transform: translateY(0);}
 }
