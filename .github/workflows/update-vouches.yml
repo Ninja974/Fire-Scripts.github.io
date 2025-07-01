@@ -14,7 +14,7 @@ jobs:
       - name: Fetch last 10 messages from Discord
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          CHANNEL_ID: 1358214203407863959
+          CHANNEL_ID: "1358214203407863959"
         run: |
           curl -s -H "Authorization: Bot $DISCORD_TOKEN" \
             "https://discord.com/api/v10/channels/$CHANNEL_ID/messages?limit=10" \
