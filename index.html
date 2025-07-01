@@ -25,7 +25,7 @@
     <ul>
       <li><a href="#hero">Home</a></li>
       <li><a href="#features">Features</a></li>
-      <!-- Testimonials removed -->
+      <li><a href="#purchase">Purchase</a></li>
     </ul>
   </nav>
 
@@ -36,10 +36,16 @@
       <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
       <span id="subtitle" class="typewriter"></span>
       <div class="buttons">
-        <a href="https://discord.gg/ry9e3kSb3A" target="_blank" class="btn discord" data-aos="fade-right">
+        <a href="https://discord.gg/ry9e3kSb3A"
+           target="_blank"
+           class="btn discord"
+           data-aos="fade-right">
           <i class="fa-brands fa-discord"></i> Join Discord
         </a>
-        <a href="https://www.paypal.com/paypalme/FireScripts/60" target="_blank" class="btn buy" data-aos="fade-left">
+        <a href="https://www.paypal.com/paypalme/FireScripts/60"
+           target="_blank"
+           class="btn buy"
+           data-aos="fade-left">
           <i class="fa-solid fa-cart-shopping"></i> Buy Script
         </a>
       </div>
@@ -68,6 +74,25 @@
     </div>
   </section>
 
+  <!-- PURCHASE / GET YOUR KEY -->
+  <section id="purchase" class="features" style="background:#111;">
+    <h2 data-aos="fade-up">Get Your Key</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Generate your access key instantly via Luarmor:</p>
+    <div class="cards" style="justify-content:center; gap:1.5em; margin-top:1em;">
+      <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea"
+         class="btn"
+         style="background:#28C76F; color:#000;"
+         data-aos="fade-up" data-aos-delay="200">
+        🔑 Get Key
+      </a>
+      <a href="https://www.paypal.com/paypalme/FireScripts/60"
+         class="btn buy"
+         data-aos="fade-up" data-aos-delay="300">
+        💎 Buy Script
+      </a>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer data-aos="fade-up">
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
@@ -83,22 +108,29 @@
   <script>
     // Partículas
     tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      particles: { number: { value: 80 }, size: { value: 3 }, move: { speed: 1 }, line_linked: { enable: true, distance: 150, opacity: 0.2 } },
-      detectRetina: true
+      fpsLimit:60,
+      particles:{
+        number:{value:80},
+        size:{value:3},
+        move:{speed:1},
+        line_linked:{enable:true,distance:150,opacity:0.2}
+      },
+      detectRetina:true
     });
 
     // Typed.js
     new Typed("#subtitle", {
-      strings: ["Premium scripts crafted with 💙.","Level up your game. Join us now."],
-      typeSpeed: 70, backSpeed: 30, backDelay: 2000, loop: true
+      strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."],
+      typeSpeed:70, backSpeed:30, backDelay:2000, loop:true
     });
 
     // Vanilla Tilt
-    VanillaTilt.init(document.querySelectorAll(".card"), { speed: 400, glare: true, "max-glare": 0.2 });
+    VanillaTilt.init(document.querySelectorAll(".card"), {
+      speed:400, glare:true, "max-glare":0.2
+    });
 
     // AOS
-    AOS.init({ once: true, duration: 800 });
+    AOS.init({ once:true, duration:800 });
   </script>
 </body>
 </html>
