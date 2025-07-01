@@ -4,45 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Scripts by Ninja974</title>
-  <link href="style.css" rel="stylesheet">
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css y AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
+
   <header class="hero">
     <div class="hero-overlay"></div>
-    <div class="hero-content">
+    <div class="hero-content animate__animated animate__fadeInDown" data-aos="zoom-in">
       <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
-      <p>Premium scripts crafted with 💙. Level up your game. Join us now.</p>
+      <p class="typewriter" id="subtitle"></p>
       <div class="buttons">
-        <a href="https://discord.gg/ry9e3kSb3A" target="_blank" class="btn discord"><i class="fa-brands fa-discord"></i> Join Discord</a>
-        <a href="#" class="btn buy"><i class="fa-solid fa-cart-shopping"></i> Buy Script</a>
+        <a href="https://discord.gg/ry9e3kSb3A" target="_blank" class="btn discord animate__animated animate__fadeInLeft" data-aos="fade-right">Join Discord</a>
+        <a href="#" class="btn buy animate__animated animate__fadeInRight" data-aos="fade-left">Buy Script</a>
       </div>
     </div>
   </header>
 
   <section class="features">
-    <h2>Why Choose Us?</h2>
+    <h2 data-aos="fade-up">Why Choose Us?</h2>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-aos="flip-left" data-aos-delay="100">
         <i class="fa-solid fa-bolt"></i>
         <h3>Fast & Reliable</h3>
-        <p>Scripts optimized for top performance.</p>
+        <p>Optimized for top performance.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="flip-left" data-aos-delay="200">
         <i class="fa-solid fa-shield"></i>
         <h3>Secure & Safe</h3>
-        <p>Safe code, updated frequently.</p>
+        <p>Safe code, updated often.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="flip-left" data-aos-delay="300">
         <i class="fa-solid fa-users"></i>
         <h3>Community Support</h3>
-        <p>Active Discord for help and updates.</p>
+        <p>Active Discord for help.</p>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer data-aos="fade-up">
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ once: true, duration: 800 });
+
+    // Typewriter effect
+    const text = "Premium scripts crafted with 💙. Level up your game, join us now.";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.getElementById("subtitle").innerHTML += text.charAt(i++);
+        setTimeout(type, 80);
+      }
+    }
+    window.onload = type;
+  </script>
 </body>
 </html>
