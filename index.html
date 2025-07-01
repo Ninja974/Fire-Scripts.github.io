@@ -4,6 +4,114 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Scripts by Ninja974</title>
+
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Animate.css, AOS, tsParticles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <style> /* sólo lo básico, después va todo a style.css */ 
+    html {scroll-behavior:smooth;}
+    body,html{margin:0;padding:0;height:100%;}
+    #tsparticles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;}
+    header,section,footer{position:relative;z-index:2;}
+  </style>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- partículas en fondo -->
+  <div id="tsparticles"></div>
+
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content animate__animated animate__fadeInDown">
+      <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
+      <span id="subtitle" class="typewriter"></span>
+      <div class="buttons">
+        <a href="https://discord.gg/ry9e3kSb3A" target="_blank" class="btn discord" data-aos="fade-right">
+          <i class="fa-brands fa-discord"></i> Join Discord
+        </a>
+        <a href="#" class="btn buy" data-aos="fade-left">
+          <i class="fa-solid fa-cart-shopping"></i> Buy Script
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="features">
+    <h2 data-aos="zoom-in-up">Why Choose Us?</h2>
+    <div class="cards">
+      <div class="card" data-tilt data-tilt-max="15" data-aos="flip-left">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Fast & Reliable</h3>
+        <p>Optimized for top performance.</p>
+      </div>
+      <div class="card" data-tilt data-tilt-max="15" data-aos="flip-left" data-aos-delay="100">
+        <i class="fa-solid fa-shield"></i>
+        <h3>Secure & Safe</h3>
+        <p>Safe code, updated often.</p>
+      </div>
+      <div class="card" data-tilt data-tilt-max="15" data-aos="flip-left" data-aos-delay="200">
+        <i class="fa-solid fa-users"></i>
+        <h3>Community Support</h3>
+        <p>Active Discord for help.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer data-aos="fade-up">
+    <p>&copy; 2025 Ninja974. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.3/tsparticles.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script>
+    // 1) Partículas
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      particles: {
+        number: { value: 80 },
+        size: { value: 3 },
+        move: { speed: 1 },
+        line_linked: { enable: true, distance: 150, opacity: 0.2 }
+      },
+      detectRetina: true
+    });
+
+    // 2) Typed subtitle
+    new Typed("#subtitle", {
+      strings: ["Premium scripts crafted with 💙.", "Level up your game. Join us now."],
+      typeSpeed: 70,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true
+    });
+
+    // 3) Tilt effect
+    VanillaTilt.init(document.querySelectorAll(".card"), {
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2
+    });
+
+    // 4) AOS
+    AOS.init({ once: true, duration: 800 });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scripts by Ninja974</title>
   <!-- Fuentes e iconos -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
