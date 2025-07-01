@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fire Scripts</title>
-  <link rel="icon" href="shurkijen.png" type="image/png" />
+  <link rel="icon" href="shurkijen.png" type="image/png"/>
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  <!-- Animate.css & AOS -->
+  <!-- Animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
-  <!-- tiny-slider CSS -->
+  <!-- tiny-slider -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"/>
 
-  <!-- Your custom styles -->
   <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-
-  <!-- Particles -->
   <div id="tsparticles"></div>
 
-  <!-- NAVBAR -->
   <nav class="nav">
     <ul>
       <li><a href="#hero">Home</a></li>
@@ -34,7 +29,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <header id="hero" class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content animate__animated animate__fadeInDown">
@@ -51,7 +45,6 @@
     </div>
   </header>
 
-  <!-- FEATURES -->
   <section id="features" class="features">
     <h2 data-aos="zoom-in-up">Why Choose Us?</h2>
     <div class="cards">
@@ -73,82 +66,72 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section id="vouches" class="testimonials">
     <h2 data-aos="fade-up">Testimonials</h2>
-    <!-- this will become our carousel container -->
     <div class="vouches-slider tns-slider"></div>
   </section>
 
-  <!-- FOOTER -->
   <footer data-aos="fade-up">
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
   </footer>
 
-  <!-- LIBRARIES -->
+  <!-- libs -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.3/tsparticles.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
 
-  <!-- INIT SCRIPTS -->
   <script>
-    // Particles
+    // particles
     tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      particles: { number: { value: 80 }, size: { value: 3 }, move: { speed: 1 }, line_linked: { enable: true, distance: 150, opacity: 0.2 } },
-      detectRetina: true
+      fpsLimit:60,
+      particles:{number:{value:80},size:{value:3},move:{speed:1},line_linked:{enable:true,distance:150,opacity:0.2}},
+      detectRetina:true
     });
 
-    // Typed.js
+    // typed
     new Typed("#subtitle", {
-      strings: ["Premium scripts crafted with 💙.", "Level up your game. Join us now."],
-      typeSpeed: 70, backSpeed: 30, backDelay: 2000, loop: true
+      strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."],
+      typeSpeed:70,backSpeed:30,backDelay:2000,loop:true
     });
 
-    // Vanilla Tilt
-    VanillaTilt.init(document.querySelectorAll(".card"), { speed: 400, glare: true, "max-glare": 0.2 });
+    // tilt
+    VanillaTilt.init(document.querySelectorAll(".card"),{speed:400,glare:true,"max-glare":0.2});
 
     // AOS
-    AOS.init({ once: true, duration: 800 });
+    AOS.init({once:true,duration:800});
 
-    // Fetch & build carousel from vouches.json
-    fetch('/vouches.json')
-      .then(r => r.json())
-      .then(vouches => {
-        const slider = document.querySelector('.vouches-slider');
-        vouches.forEach(v => {
-          const slide = document.createElement('div');
-          slide.className = 'card';
-          slide.innerHTML = `
+    // load your vouches.json and build carousel
+    fetch("vouches.json")
+      .then(r=>r.json())
+      .then(vouches=>{
+        const slider = document.querySelector(".vouches-slider");
+        vouches.forEach(v=>{
+          const card=document.createElement("div");
+          card.className="card";
+          card.innerHTML=`
             <div class="vouch-header">
-              ${v.avatar ? `<img src="${v.avatar}" alt="${v.user}">` : ''}
+              ${v.avatar?`<img src="${v.avatar}" alt="${v.user}">`:``}
               <strong>${v.user}</strong>
             </div>
             <p>"${v.content}"</p>
           `;
-          slider.appendChild(slide);
+          slider.appendChild(card);
         });
-
-        // Init tiny‐slider
         tns({
-          container: '.vouches-slider',
-          items: 1,
-          slideBy: 'page',
-          autoplay: true,
-          autoplayButtonOutput: false,
-          controls: true,
-          nav: true,
-          gutter: 20,
-          responsive: {
-            640:  { items: 1 },
-            900:  { items: 2 },
-            1200: { items: 3 }
+          container:".vouches-slider",
+          items:1,slideBy:"page",
+          autoplay:true,autoplayButtonOutput:false,
+          controls:true,nav:true,gutter:20,
+          responsive:{
+            640:{items:1},
+            900:{items:2},
+            1200:{items:3}
           }
         });
       })
-      .catch(err => console.error('Error loading vouches:', err));
+      .catch(e=>console.error("vouches load error:",e));
   </script>
 </body>
 </html>
