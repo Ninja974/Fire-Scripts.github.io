@@ -25,7 +25,7 @@
     <ul>
       <li><a href="#hero">Home</a></li>
       <li><a href="#features">Features</a></li>
-      <li><a href="#purchase">Purchase</a></li>
+      <!-- botón Purchase eliminado -->
     </ul>
   </nav>
 
@@ -36,12 +36,21 @@
       <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
       <span id="subtitle" class="typewriter"></span>
       <div class="buttons">
+        <!-- Join Discord -->
         <a href="https://discord.gg/ry9e3kSb3A"
            target="_blank"
            class="btn discord"
            data-aos="fade-right">
           <i class="fa-brands fa-discord"></i> Join Discord
         </a>
+        <!-- Get Key (Work.ink logo + texto) -->
+        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea"
+           target="_blank"
+           class="btn key"
+           data-aos="fade-up">
+          <img src="workink-logo.png" alt="Work.ink" class="btn-icon" /> Get Key
+        </a>
+        <!-- Buy Script -->
         <a href="https://www.paypal.com/paypalme/FireScripts/60"
            target="_blank"
            class="btn buy"
@@ -74,25 +83,6 @@
     </div>
   </section>
 
-  <!-- PURCHASE / GET YOUR KEY -->
-  <section id="purchase" class="features" style="background:#111;">
-    <h2 data-aos="fade-up">Get Your Key</h2>
-    <p data-aos="fade-up" data-aos-delay="100">Generate your access key instantly via Luarmor:</p>
-    <div class="cards" style="justify-content:center; gap:1.5em; margin-top:1em;">
-      <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea"
-         class="btn"
-         style="background:#28C76F; color:#000;"
-         data-aos="fade-up" data-aos-delay="200">
-        🔑 Get Key
-      </a>
-      <a href="https://www.paypal.com/paypalme/FireScripts/60"
-         class="btn buy"
-         data-aos="fade-up" data-aos-delay="300">
-        💎 Buy Script
-      </a>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer data-aos="fade-up">
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
@@ -109,12 +99,7 @@
     // Partículas
     tsParticles.load("tsparticles", {
       fpsLimit:60,
-      particles:{
-        number:{value:80},
-        size:{value:3},
-        move:{speed:1},
-        line_linked:{enable:true,distance:150,opacity:0.2}
-      },
+      particles:{ number:{value:80}, size:{value:3}, move:{speed:1}, line_linked:{enable:true,distance:150,opacity:0.2} },
       detectRetina:true
     });
 
