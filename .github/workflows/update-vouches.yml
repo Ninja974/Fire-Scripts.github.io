@@ -17,13 +17,31 @@ jobs:
           CHANNEL_ID: 1358214203407863959
         run: |
           curl -s -H "Authorization: Bot $DISCORD_TOKEN" \
-            "https://discord.com/api/v10/channels/$CHANNEL_ID/messages?limit=10" > raw.json
-          # Filtra el JSON y extrae solo usuario, avatar y contenido
-          jq '[ .[] 
-                | select(.author.bot|not) 
-                | { user: .author.username
-                  , avatar: (if .author.avatar then "https://cdn.discordapp.com/avatars/"+.author.id+"/"+.author.avatar+".png" else "" end)
-                  , content: .content } 
+            "https://discord.com/api/v10/channels/$CHANNEL_ID/messages?limit=10" \
+            > raw.json
+
+      - name: Debug raw.json
+        run: |
+          echo "=== raw.json start ==="
+          cat raw.json
+          echo "==== raw.json end ===="
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Filter & build vouches.json
+        run: |
+          jq '[ .[]
+                | select(.author.bot|not)
+                | { 
+                    user: .author.username,
+                    avatar: (if .author.avatar then
+                                "https://cdn.discordapp.com/avatars/"+.author.id+"/"+.author.avatar+".png"
+                             else "" end),
+                    content: .content
+                  } 
               ]' raw.json > vouches.json
 
       - name: Commit & Push vouches.json
@@ -31,5 +49,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add vouches.json
-          git commit -m "Auto-update vouches"
+          git commit -m "Auto-update vouches" || echo "No changes to commit"
           git push
