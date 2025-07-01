@@ -9,23 +9,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Animate.css, AOS, tsParticles -->
+  <!-- Animate.css, AOS, tsParticles, Typed.js, VanillaTilt -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-  <style> /* sólo lo básico, después va todo a style.css */ 
-    html {scroll-behavior:smooth;}
-    body,html{margin:0;padding:0;height:100%;}
-    #tsparticles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;}
-    header,section,footer{position:relative;z-index:2;}
-  </style>
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- partículas en fondo -->
+  <!-- Partículas de fondo -->
   <div id="tsparticles"></div>
 
-  <header class="hero">
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#vouches">Testimonials</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero" class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content animate__animated animate__fadeInDown">
       <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
@@ -41,7 +45,8 @@
     </div>
   </header>
 
-  <section class="features">
+  <!-- FEATURES -->
+  <section id="features" class="features">
     <h2 data-aos="zoom-in-up">Why Choose Us?</h2>
     <div class="cards">
       <div class="card" data-tilt data-tilt-max="15" data-aos="flip-left">
@@ -62,16 +67,22 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS / VOUCHES -->
+  <section id="vouches" class="testimonials">
+    <h2 data-aos="fade-up">Testimonials</h2>
+    <div id="vouches-list" class="cards"></div>
+  </section>
+
+  <!-- FOOTER -->
   <footer data-aos="fade-up">
     <p>&copy; 2025 Ninja974. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.3/tsparticles.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
   <script>
     // 1) Partículas
     tsParticles.load("tsparticles", {
@@ -94,87 +105,41 @@
       loop: true
     });
 
-    // 3) Tilt effect
+    // 3) Tilt effect on cards
     VanillaTilt.init(document.querySelectorAll(".card"), {
       speed: 400,
       glare: true,
       "max-glare": 0.2
     });
 
-    // 4) AOS
-    AOS.init({ once: true, duration: 800 });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Scripts by Ninja974</title>
-  <!-- Fuentes e iconos -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Animate.css y AOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-  <link href="style.css" rel="stylesheet">
-</head>
-<body>
-
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content animate__animated animate__fadeInDown" data-aos="zoom-in">
-      <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
-      <p class="typewriter" id="subtitle"></p>
-      <div class="buttons">
-        <a href="https://discord.gg/ry9e3kSb3A" target="_blank" class="btn discord animate__animated animate__fadeInLeft" data-aos="fade-right">Join Discord</a>
-        <a href="#" class="btn buy animate__animated animate__fadeInRight" data-aos="fade-left">Buy Script</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="features">
-    <h2 data-aos="fade-up">Why Choose Us?</h2>
-    <div class="cards">
-      <div class="card" data-aos="flip-left" data-aos-delay="100">
-        <i class="fa-solid fa-bolt"></i>
-        <h3>Fast & Reliable</h3>
-        <p>Optimized for top performance.</p>
-      </div>
-      <div class="card" data-aos="flip-left" data-aos-delay="200">
-        <i class="fa-solid fa-shield"></i>
-        <h3>Secure & Safe</h3>
-        <p>Safe code, updated often.</p>
-      </div>
-      <div class="card" data-aos="flip-left" data-aos-delay="300">
-        <i class="fa-solid fa-users"></i>
-        <h3>Community Support</h3>
-        <p>Active Discord for help.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer data-aos="fade-up">
-    <p>&copy; 2025 Ninja974. All rights reserved.</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    // Init AOS
+    // 4) AOS init
     AOS.init({ once: true, duration: 800 });
 
-    // Typewriter effect
-    const text = "Premium scripts crafted with 💙. Level up your game, join us now.";
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        document.getElementById("subtitle").innerHTML += text.charAt(i++);
-        setTimeout(type, 80);
+    // 5) Load vouches from your serverless endpoint
+    async function loadVouches() {
+      try {
+        const res = await fetch('/.netlify/functions/get-vouches');
+        const v = await res.json();
+        const container = document.getElementById('vouches-list');
+        v.forEach((item, i) => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.setAttribute('data-aos', 'fade-up');
+          card.setAttribute('data-aos-delay', i * 100);
+          card.innerHTML = `
+            <div class="vouch-header">
+              <img src="${item.avatar}" alt="${item.user}" onerror="this.style.display='none'"/>
+              <strong>${item.user}</strong>
+            </div>
+            <p>"${item.content}"</p>
+          `;
+          container.append(card);
+        });
+      } catch(e) {
+        console.error('Error loading vouches', e);
       }
     }
-    window.onload = type;
+    loadVouches();
   </script>
 </body>
 </html>
