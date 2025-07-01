@@ -10,11 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  <!-- Animations -->
+  <!-- Animations & AOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
-  <!-- Your custom styles -->
+  <!-- Custom Styles -->
   <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
@@ -25,7 +25,7 @@
     <ul>
       <li><a href="#hero">Home</a></li>
       <li><a href="#features">Features</a></li>
-      <!-- botón Purchase eliminado -->
+      <li><a href="#script">Script</a></li>
     </ul>
   </nav>
 
@@ -36,23 +36,39 @@
       <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
       <span id="subtitle" class="typewriter"></span>
       <div class="buttons">
-        <!-- Join Discord -->
         <a href="https://discord.gg/ry9e3kSb3A"
            target="_blank"
            class="btn discord"
            data-aos="fade-right">
           <i class="fa-brands fa-discord"></i> Join Discord
         </a>
-        <!-- Get Key (Work.ink logo + texto) -->
         <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea"
            target="_blank"
            class="btn key"
            data-aos="fade-up">
           <img src="workink-logo.png" alt="Work.ink" class="btn-icon" /> Get Key
         </a>
+        <a href="https://www.paypal.com/paypalme/FireScripts/60"
+           target="_blank"
+           class="btn buy"
+           data-aos="fade-left">
+          <i class="fa-solid fa-cart-shopping"></i> Buy Script
+        </a>
       </div>
     </div>
   </header>
+
+  <!-- SCRIPT SECTION -->
+  <section id="script" class="script-section" data-aos="fade-up">
+    <h2>Script Loader</h2>
+    <p>Introduce tu clave y genera el loader listo para copiar:</p>
+    <div class="script-form">
+      <input type="text" id="scriptKey" placeholder="Enter your key" />
+      <button id="generateBtn" class="btn key">Generate</button>
+    </div>
+    <pre><code id="scriptCode">-- your generated loader will appear here --</code></pre>
+    <button id="copyBtn" class="btn buy">Copy to Clipboard</button>
+  </section>
 
   <!-- FEATURES -->
   <section id="features" class="features">
@@ -91,24 +107,48 @@
   <script>
     // Partículas
     tsParticles.load("tsparticles", {
-      fpsLimit:60,
-      particles:{ number:{value:80}, size:{value:3}, move:{speed:1}, line_linked:{enable:true,distance:150,opacity:0.2} },
-      detectRetina:true
+      fpsLimit: 60,
+      particles: {
+        number: { value: 80 },
+        size: { value: 3 },
+        move: { speed: 1 },
+        line_linked: { enable: true, distance: 150, opacity: 0.2 }
+      },
+      detectRetina: true
     });
 
     // Typed.js
     new Typed("#subtitle", {
-      strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."],
-      typeSpeed:70, backSpeed:30, backDelay:2000, loop:true
+      strings: ["Premium scripts crafted with 💙.","Level up your game. Join us now."],
+      typeSpeed: 70, backSpeed: 30, backDelay: 2000, loop: true
     });
 
     // Vanilla Tilt
     VanillaTilt.init(document.querySelectorAll(".card"), {
-      speed:400, glare:true, "max-glare":0.2
+      speed: 400, glare: true, "max-glare": 0.2
     });
 
     // AOS
-    AOS.init({ once:true, duration:800 });
+    AOS.init({ once: true, duration: 800 });
+
+    // Generador de loader
+    const tpl = key => 
+`script_key="${key}";
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/acdced2352def79bef163e2db39d2ec5.lua"))()`;
+
+    document.getElementById("generateBtn").onclick = () => {
+      const key = document.getElementById("scriptKey").value.trim();
+      document.getElementById("scriptCode").innerText = key
+        ? tpl(key)
+        : "-- Please enter your key above --";
+    };
+
+    document.getElementById("copyBtn").onclick = () => {
+      const code = document.getElementById("scriptCode").innerText;
+      navigator.clipboard.writeText(code)
+        .then(()=> alert("Copied to clipboard!"))
+        .catch(()=> alert("Copy failed"));
+    };
   </script>
 </body>
 </html>
