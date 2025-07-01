@@ -1,5 +1,9 @@
 name: Update Vouches
 
+# Grant the workflow write access so it can commit back to the repo
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 * * * *'   # cada hora
@@ -35,13 +39,13 @@ jobs:
         run: |
           jq '[ .[]
                 | select(.author.bot|not)
-                | { 
+                | {
                     user: .author.username,
                     avatar: (if .author.avatar then
                                 "https://cdn.discordapp.com/avatars/"+.author.id+"/"+.author.avatar+".png"
                              else "" end),
                     content: .content
-                  } 
+                  }
               ]' raw.json > vouches.json
 
       - name: Commit & Push vouches.json
