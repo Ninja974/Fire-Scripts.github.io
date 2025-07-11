@@ -38,19 +38,15 @@
       <h1><i class="fa-solid fa-code"></i> Scripts by Ninja974</h1>
       <span id="subtitle" class="typewriter"></span>
       <div class="buttons">
-        <a href="https://discord.gg/ry9e3kSb3A" class="btn btn-discord" target="_blank"><i class="fa-brands fa-discord"></i> Join Discord</a>
-        
-        <div id="keyButtonContainer">
-          <button id="mainKeyBtn" class="btn btn-key">
-            <img src="workink-logo.png" class="btn-icon" alt="W"> Get Key
-          </button>
-          <div id="linkOptions">
-            <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" class="btn btn-key" target="_blank">
-              <img src="workink-logo.png" class="btn-icon" alt="W"> Work.ink
-            </a>
-            <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" class="btn btn-key" target="_blank">
-              <i class="fa-solid fa-link"></i> Linkvertise
-            </a>
+        <a href="https://discord.gg/ry9e3kSb3A" class="btn btn-discord" target="_blank">
+          <i class="fa-brands fa-discord"></i> Join Discord
+        </a>
+
+        <div class="key-dropdown">
+          <button class="btn main-key-btn">Get Key</button>
+          <div class="key-dropdown-content">
+            <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" target="_blank">Work.ink</a>
+            <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" target="_blank">Linkvertise</a>
           </div>
         </div>
       </div>
@@ -134,12 +130,6 @@
     document.getElementById("copyBtn").onclick = () => {
       navigator.clipboard.writeText(document.getElementById("scriptCode").textContent);
       alert("Copied!");
-    };
-
-    // Toggle Key Options
-    document.getElementById("mainKeyBtn").onclick = () => {
-      const links = document.getElementById("linkOptions");
-      links.style.display = links.style.display === "flex" ? "none" : "flex";
     };
   </script>
 </body>
