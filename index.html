@@ -45,8 +45,12 @@
         <div class="key-dropdown">
           <button class="btn main-key-btn">Get Key</button>
           <div class="key-dropdown-content">
-            <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" target="_blank">Work.ink</a>
-            <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" target="_blank">Linkvertise</a>
+            <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" target="_blank">
+              <img src="workink-logo.png" alt="Work.ink" class="dropdown-icon"> Work.ink
+            </a>
+            <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" target="_blank">
+              <img src="linkvertise-logo.png" alt="Linkvertise" class="dropdown-icon"> Linkvertise
+            </a>
           </div>
         </div>
       </div>
@@ -107,19 +111,14 @@
 
   <!-- Init -->
   <script>
-    // Partículas
     tsParticles.load("tsparticles", { fpsLimit:60, particles:{ number:{value:80}, size:{value:3}, move:{speed:1}, line_linked:{enable:true,distance:150,opacity:0.2} }, detectRetina:true });
 
-    // Typed
     new Typed("#subtitle",{ strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."], typeSpeed:70, backSpeed:30, backDelay:2000, loop:true });
 
-    // Tilt
     VanillaTilt.init(document.querySelectorAll(".features .card"), { speed:400, glare:true, "max-glare":0.2 });
 
-    // AOS
     AOS.init({ once:true, duration:800 });
 
-    // Loader
     document.getElementById("generateBtn").onclick = () => {
       const key = document.getElementById("scriptKey").value.trim();
       if (!key) return alert("Please enter your key.");
