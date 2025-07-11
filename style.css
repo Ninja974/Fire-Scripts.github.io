@@ -60,11 +60,15 @@ body {
 
 .btn {
   display:inline-flex; align-items:center; justify-content:center;
-  padding:12px 28px; border:none; border-radius:30px;
+  padding:12px 32px; border:none; border-radius:30px;
   font-weight:600; cursor:pointer; transition:.2s;
   box-shadow:0 8px 20px rgba(0,0,0,0.4);
   text-decoration: none;
-  min-width: 140px;
+  min-width: 180px;
+  font-size: 1rem;
+}
+.btn i {
+  margin-right: 8px;
 }
 .btn:hover {
   transform:translateY(-3px);
@@ -107,7 +111,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  min-width: 160px;
+  min-width: 180px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
   z-index: 10;
 }
