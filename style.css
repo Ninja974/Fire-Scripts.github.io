@@ -5,7 +5,6 @@
   --accent:#00FFAB;
   --blue:  #5865F2;
   --cyan:  #00E5FF;
-  --pink:  #FF00A8; /* Nuevo color para Get Key */
   --txt:   #e0e0e0;
 }
 
@@ -18,7 +17,6 @@ body {
   scroll-behavior: smooth;
 }
 
-/* NAVBAR */
 .nav {
   position: fixed; top:0; left:0; width:100%;
   background: rgba(0,0,0,0.7); padding:14px 0; z-index:1000;
@@ -33,12 +31,10 @@ body {
 }
 .nav a:hover { color: var(--accent); }
 
-/* PARTICLES */
 #tsparticles {
   position:fixed; top:0; left:0; width:100%; height:100%; z-index:1;
 }
 
-/* HERO */
 .hero {
   height:100vh; display:flex;
   align-items:center; justify-content:center;
@@ -61,7 +57,6 @@ body {
   overflow:hidden; white-space:nowrap;
 }
 
-/* GENERIC BUTTON */
 .btn {
   display:inline-flex; align-items:center; justify-content:center;
   padding:12px 28px; border:none; border-radius:30px;
@@ -80,36 +75,34 @@ body {
   background: var(--cyan); color: #000;
 }
 .main-key-btn {
-  background: var(--pink); color: #fff;
+  background: var(--cyan);
+  color: #000;
 }
 
-.btn-icon {
-  width:1rem; height:1rem; margin-right:0.5rem;
-}
-
-/* BUTTONS CONTAINER */
 .buttons {
   margin-top:20px;
   display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
 }
 
-/* DROPDOWN */
 .key-dropdown {
   position: relative;
   display: inline-block;
 }
 
 .key-dropdown-content {
-  display: none;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   right: 0;
   margin-top: 10px;
-  background-color: var(--card);
+  background: var(--card);
   border-radius: 8px;
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  min-width: 160px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  flex-direction: column;
-  min-width: 140px;
   z-index: 10;
 }
 
@@ -117,19 +110,26 @@ body {
   color: var(--txt);
   padding: 12px 16px;
   text-decoration: none;
-  display: block;
-  transition: background .2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
 }
 
 .key-dropdown-content a:hover {
-  background-color: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.05);
 }
 
 .key-dropdown:hover .key-dropdown-content {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
-/* FEATURES */
+.dropdown-icon {
+  width: 18px;
+  height: 18px;
+}
+
 .features {
   background: var(--dark); padding:80px 20px; text-align:center;
 }
@@ -153,7 +153,6 @@ body {
 }
 .card h3 { margin-bottom:8px; }
 
-/* SCRIPT LOADER */
 .script-section {
   position:relative; background: var(--dark);
   padding:80px 0; z-index:2;
@@ -201,14 +200,12 @@ pre {
 }
 #copyBtn { margin-top:8px; }
 
-/* FOOTER */
 footer {
   background: var(--bg);
   padding:40px 20px;
   color:#aaa; text-align:center; font-size:.9em;
 }
 
-/* RESPONSIVE */
 @media (max-width:500px) {
   .script-form { flex-direction:column; }
   .script-form input { width:100%; }
