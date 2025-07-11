@@ -113,7 +113,13 @@
   <script>
     tsParticles.load("tsparticles", { fpsLimit:60, particles:{ number:{value:80}, size:{value:3}, move:{speed:1}, line_linked:{enable:true,distance:150,opacity:0.2} }, detectRetina:true });
 
-    new Typed("#subtitle",{ strings:["Premium scripts crafted with 💙.","Level up your game. Join us now."], typeSpeed:70, backSpeed:30, backDelay:2000, loop:true });
+    new Typed("#subtitle", {
+      strings: ["Premium scripts crafted with 💙", "Fast. Safe. Community driven."],
+      typeSpeed: 70,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true
+    });
 
     VanillaTilt.init(document.querySelectorAll(".features .card"), { speed:400, glare:true, "max-glare":0.2 });
 
