@@ -29,58 +29,13 @@ body {
   position: relative;
 }
 
-/* Animated Background */
-.bg-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.bg-animation::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-      circle at 20% 80%,
-      rgba(255, 71, 87, 0.3) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(255, 165, 2, 0.3) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 40%,
-      rgba(255, 107, 122, 0.2) 0%,
-      transparent 50%
-    );
-  animation: pulse 4s ease-in-out infinite alternate;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 /* Navigation */
 .nav {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: 101; /* Higher than canvas */
   padding: 12px 24px;
   background: var(--glass);
   backdrop-filter: blur(20px);
@@ -119,8 +74,9 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 120px 20px 0 20px; /* Increased top padding */
+  padding: 120px 20px 0 20px;
   position: relative;
+  z-index: 10; /* Higher than canvas */
 }
 
 .hero-content {
@@ -134,11 +90,11 @@ body {
   gap: 8px;
   padding: 8px 16px;
   background: var(--glass);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 50px;
   font-size: 0.9rem;
   margin-bottom: 24px;
-  backdrop-filter: blur(10px);
 }
 
 .hero-badge i {
@@ -161,11 +117,18 @@ body {
   color: var(--text-muted);
   margin-bottom: 32px;
   font-weight: 300;
+  /* No background, border, padding, or box-shadow here */
 }
 
+/* Typewriter effect improvements */
 .typewriter {
-  border-right: 2px solid var(--primary);
-  animation: blink 1s infinite;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.4rem;
+  color: var(--text);
+  /* Removed text-shadow for glow as requested */
+  border-right: 3px solid var(--primary); /* Thicker cursor */
+  animation: blink 1s infinite; /* Removed glow-cursor animation */
+  display: inline-block;
 }
 
 @keyframes blink {
@@ -179,6 +142,8 @@ body {
   }
 }
 
+/* Removed @keyframes glow-cursor as requested */
+
 /* Glass Cards */
 .glass-card {
   background: var(--glass);
@@ -188,6 +153,8 @@ body {
   padding: 32px;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 10; /* Higher than canvas */
 }
 
 .glass-card:hover {
@@ -200,8 +167,12 @@ body {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 14px 28px;
+  padding: 0 28px;
+  min-width: 180px;
+  height: 48px;
+  line-height: 48px;
   border: none;
   border-radius: 50px;
   font-weight: 600;
@@ -214,6 +185,14 @@ body {
   background: linear-gradient(135deg, #ff4757, #ff6b2c);
   color: #fff;
   box-shadow: var(--glow);
+  vertical-align: middle;
+}
+
+.btn i {
+  line-height: 1;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
 }
 
 .btn::before {
@@ -223,12 +202,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s;
 }
 
@@ -266,6 +240,7 @@ body {
 .key-dropdown {
   position: relative;
   display: inline-block;
+  z-index: 1000; /* Higher than nav and other content */
 }
 
 .dropdown-content {
@@ -283,7 +258,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 100; /* Relative to its parent .key-dropdown */
   box-shadow: var(--shadow);
 }
 
@@ -336,13 +311,15 @@ body {
 
 /* Features Section */
 .features {
-  padding: 100px 20px;
-  backdrop-filter: blur(10px);
+  padding: 20px 20px;
+  position: relative;
+  z-index: 10; /* Higher than canvas */
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  backdrop-filter: blur(10px);
 }
 
 .section-title {
@@ -446,6 +423,8 @@ body {
 .script-section {
   padding: 100px 20px;
   backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10; /* Higher than canvas */
 }
 
 .script-card {
@@ -469,11 +448,11 @@ body {
   flex: 1;
   padding: 16px 20px;
   background: var(--glass);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 50px;
   color: var(--text);
   font-size: 1rem;
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 
@@ -489,6 +468,7 @@ body {
 
 .code-container {
   background: var(--glass);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 24px;
@@ -496,7 +476,6 @@ body {
   text-align: left;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
 }
 
 .code-container::before {
@@ -525,6 +504,8 @@ body {
   backdrop-filter: blur(15px);
   text-align: center;
   border-top: 1px solid var(--glass-border);
+  position: relative;
+  z-index: 10; /* Higher than canvas */
 }
 
 .footer-content {

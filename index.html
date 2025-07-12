@@ -1,321 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fire Scripts - Premium Gaming Scripts</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="bg-animation"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fire Scripts - Premium Gaming Scripts</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <canvas
+      id="fire-canvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        pointer-events: none;
+      "
+    ></canvas>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#script">Scripts</a></li>
-    </ul>
-  </nav>
+    <nav class="nav">
+      <ul>
+        <li>
+          <a href="#hero">Home</a>
+        </li>
+        <li>
+          <a href="#features">Features</a>
+        </li>
+        <li>
+          <a href="#script">Scripts</a>
+        </li>
+      </ul>
+    </nav>
 
-  <br>
-  <br>
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-fire"></i>
+          <span>Premium Gaming Scripts</span>
+        </div>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <i class="fas fa-fire"></i>
-        <span>Premium Gaming Scripts</span>
-      </div>
-      
-      <h1>Fire Scripts</h1>
-      <p class="hero-subtitle">
-        <span class="typewriter" id="typewriter">Unleash your gaming potential with premium scripts</span>
-      </p>
+        <h1>Fire Scripts</h1>
+        <p class="hero-subtitle">
+          <span class="typewriter">Unleash your gaming potential with premium scripts</span>
+        </p>
 
-      <div class="hero-buttons">
-        <a href="https://discord.gg/ry9e3kSb3A" class="btn btn-discord" target="_blank">
-          <i class="fab fa-discord"></i>
-          Join Discord
-        </a>
+        <div class="hero-buttons">
+          <a
+            href="https://discord.gg/ry9e3kSb3A"
+            class="btn btn-discord"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-discord"></i>
+            Join Discord
+          </a>
 
-        <div class="key-dropdown">
-          <button class="btn btn-primary">
-            <i class="fas fa-key"></i>
-            Get Key
-          </button>
-          <div class="dropdown-content">
-            <div class="game-option">
-              <div class="game-title">Project Slayers</div>
-              <div class="key-links">
-                <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" class="key-link" target="_blank">
-                  <i class="fas fa-link"></i>
-                  Work.ink
-                </a>
-                <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" class="key-link" target="_blank">
-                  <i class="fas fa-external-link-alt"></i>
-                  Linkvertise
-                </a>
+          <div class="key-dropdown" style="position:relative;">
+            <button class="btn btn-primary">
+              <i class="fas fa-key"></i>
+              Get Key
+            </button>
+            <div class="dropdown-content" style="z-index: 200;">
+              <div class="game-option">
+                <div class="game-title">Project Slayers</div>
+                <div class="key-links">
+                  <a
+                    href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea"
+                    class="key-link"
+                    target="_blank"
+                  >
+                    <i class="fas fa-link"></i>
+                    Work.ink
+                  </a>
+                  <a
+                    href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA"
+                    class="key-link"
+                    target="_blank"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    Linkvertise
+                  </a>
+                </div>
+              </div>
+              <div class="game-option">
+                <div class="game-title">Grow A Garden</div>
+                <div class="key-links">
+                  <a
+                    href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea"
+                    class="key-link"
+                    target="_blank"
+                  >
+                    <i class="fas fa-link"></i>
+                    Work.ink
+                  </a>
+                  <a
+                    href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA"
+                    class="key-link"
+                    target="_blank"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    Linkvertise
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="game-option">
-              <div class="game-title">Grow A Garden</div>
-              <div class="key-links">
-                <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" class="key-link" target="_blank">
-                  <i class="fas fa-link"></i>
-                  Work.ink
-                </a>
-                <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" class="key-link" target="_blank">
-                  <i class="fas fa-external-link-alt"></i>
-                  Linkvertise
-                </a>
-              </div>
+          </div>
+
+          <a
+            href="https://www.paypal.com/paypalme/FireScripts/15"
+            class="btn btn-paypal"
+            target="_blank"
+          >
+            <i class="fab fa-paypal"></i>
+            Buy Adless ($15)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <br>
+    <br>
+    <br/>
+    <br/>
+    <br/>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2 class="section-title">Why Fire?</h2>
+        <p class="section-subtitle">Experience the ultimate gaming advantage with our premium features</p>
+
+        <div class="features-grid">
+          <div class="feature-card glass-card">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Lightning Fast</h3>
+            <p>
+              Optimized for maximum performance with minimal impact on your gaming experience. Our scripts are built
+              for speed and efficiency.
+            </p>
+          </div>
+
+          <div class="feature-card glass-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Secure & Safe</h3>
+            <p>
+              Built with security in mind. Regular updates and thorough testing ensure your account stays protected
+              while using our scripts.
+            </p>
+          </div>
+
+          <div class="feature-card glass-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Community Driven</h3>
+            <p>
+              Join hundreds of satisfied users in our active Discord community. Get support, share experiences, and
+              stay updated.
+            </p>
+          </div>
+
+          <div class="feature-card glass-card">
+            <div class="feature-icon">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <h3>Multiple Games</h3>
+            <p>
+              Supporting popular games like Project Slayers and Grow A Garden with more titles being added regularly.
+            </p>
+          </div>
+
+          <div class="feature-card glass-card">
+            <div class="feature-icon">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3>Regular Updates</h3>
+            <p>
+              Constant improvements and new features. Our scripts evolve with the games to maintain compatibility and
+              add new functionality.
+            </p>
+          </div>
+
+          <div class="feature-card glass-card">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>24/7 Support</h3>
+            <p>
+              Get help whenever you need it. Our dedicated support team and community are always ready to assist you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="script" class="script-section">
+      <div class="container">
+        <div class="script-card glass-card">
+          <h2 class="section-title">Game Scripts</h2>
+          <p class="section-subtitle">Select your game and get the loader script</p>
+
+          <div class="game-selection">
+            <div class="game-options">
+              <button class="game-btn" data-game="project-slayers">
+                <i class="fas fa-fire"></i>
+                <span>Project Slayers</span>
+              </button>
+              <button class="game-btn" data-game="grow-garden">
+                <i class="fas fa-seedling"></i>
+                <span>Grow A Garden</span>
+              </button>
             </div>
           </div>
-        </div>
 
-        <a href="https://www.paypal.com/paypalme/FireScripts/15" class="btn btn-paypal" target="_blank">
-          <i class="fab fa-paypal"></i>
-          Buy Adless ($15)
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="features">
-    <div class="container">
-      <h2 class="section-title">Why Fire?</h2>
-      <p class="section-subtitle">Experience the ultimate gaming advantage with our premium features</p>
-      
-      <div class="features-grid">
-        <div class="feature-card glass-card">
-          <div class="feature-icon">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3>Lightning Fast</h3>
-          <p>Optimized for maximum performance with minimal impact on your gaming experience. Our scripts are built for speed and efficiency.</p>
-        </div>
-        
-        <div class="feature-card glass-card">
-          <div class="feature-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3>Secure & Safe</h3>
-          <p>Built with security in mind. Regular updates and thorough testing ensure your account stays protected while using our scripts.</p>
-        </div>
-        
-        <div class="feature-card glass-card">
-          <div class="feature-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Community Driven</h3>
-          <p>Join hundreds of satisfied users in our active Discord community. Get support, share experiences, and stay updated.</p>
-        </div>
-
-        <div class="feature-card glass-card">
-          <div class="feature-icon">
-            <i class="fas fa-gamepad"></i>
-          </div>
-          <h3>Multiple Games</h3>
-          <p>Supporting popular games like Project Slayers and Grow A Garden with more titles being added regularly.</p>
-        </div>
-
-        <div class="feature-card glass-card">
-          <div class="feature-icon">
-            <i class="fas fa-sync-alt"></i>
-          </div>
-          <h3>Regular Updates</h3>
-          <p>Constant improvements and new features. Our scripts evolve with the games to maintain compatibility and add new functionality.</p>
-        </div>
-
-        <div class="feature-card glass-card">
-          <div class="feature-icon">
-            <i class="fas fa-headset"></i>
-          </div>
-          <h3>24/7 Support</h3>
-          <p>Get help whenever you need it. Our dedicated support team and community are always ready to assist you.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Script Section -->
-  <section id="script" class="script-section">
-    <div class="container">
-      <div class="script-card glass-card">
-        <h2 class="section-title">Game Scripts</h2>
-        <p class="section-subtitle">Select your game and get the loader script</p>
-
-        <div class="game-selection">
-          <div class="game-options">
-            <button class="game-btn" data-game="project-slayers"  >
-              <i class="fas fa-fire"></i>
-              <span>Project Slayers</span>
-            </button>
-            <button class="game-btn" data-game="grow-garden">
-              <i class="fas fa-seedling"></i>
-              <span>Grow A Garden</span>
+          <div class="script-form" id="keyForm" style="display: none">
+            <input type="text" class="script-input" id="scriptKey" placeholder="Enter your key here..." />
+            <button class="btn btn-primary" id="generateBtn">
+              <i class="fas fa-code"></i>
+              Generate
             </button>
           </div>
-        </div>
 
-        <div class="script-form" id="keyForm" style="display: none;">
-          <input type="text" class="script-input" id="scriptKey" placeholder="Enter your key here...">
-          <button class="btn btn-primary" id="generateBtn">
-            <i class="fas fa-code"></i>
-            Generate
+          <div class="code-container">
+            <pre class="code-block" id="scriptCode">-- Select a game above to get the loader script --</pre>
+          </div>
+          <button class="btn btn-secondary" id="copyBtn" style="display: none">
+            <i class="fas fa-copy"></i>
+            Copy to Clipboard
           </button>
         </div>
+      </div>
+    </section>
 
-        <div class="code-container">
-          <pre class="code-block" id="scriptCode">-- Select a game above to get the loader script --</pre>
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <p>&copy; 2025 Ninja974. All rights reserved.</p>
         </div>
-
-        <button class="btn btn-secondary" id="copyBtn" style="display: none;">
-          <i class="fas fa-copy"></i>
-          Copy to Clipboard
-        </button>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#features">Features</a>
+          <a href="#script">Scripts</a>
+          <a href="https://discord.gg/ry9e3kSb3A" target="_blank" rel="noopener noreferrer">
+            Discord
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div>
-        <p>&copy; 2025 Ninja974. All rights reserved.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#hero">Home</a>
-        <a href="#features">Features</a>
-        <a href="#script">Scripts</a>
-        <a href="https://discord.gg/ry9e3kSb3A" target="_blank">Discord</a>
-      </div>
-    </div>
-  </footer>
+    <script>
+      const canvas = document.getElementById("fire-canvas")
+      const ctx = canvas.getContext("2d")
+      const particles = []
+      let animationFrameId = null
 
-  <script>
-    // Typewriter effect
-    const typewriter = document.getElementById('typewriter');
-    const texts = [
-      'Unleash your gaming potential with premium scripts',
-      'Fast ⚡ Safe 🔒 Community driven 🤝',
-      'Join thousands of satisfied gamers worldwide',
-      'Premium scripts crafted with passion 💙'
-    ];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+      const createParticle = (x, y, type) => {
+        let size
+        let speedX
+        let speedY
+        let life
+        let colorHue
+        let colorSaturation
+        let colorLightness
 
-    function type() {
-      const currentText = texts[textIndex];
-      
-      if (isDeleting) {
-        typewriter.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typewriter.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      if (!isDeleting && charIndex === currentText.length) {
-        setTimeout(() => isDeleting = true, 2000);
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-      }
-
-      setTimeout(type, isDeleting ? 50 : 100);
-    }
-
-    type();
-
-    // Game selection and script generation
-    let selectedGame = null;
-    const gameButtons = document.querySelectorAll('.game-btn');
-    const keyForm = document.getElementById('keyForm');
-    const scriptCode = document.getElementById('scriptCode');
-    const copyBtn = document.getElementById('copyBtn');
-
-    gameButtons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Remove active class from all buttons
-        gameButtons.forEach(b => b.classList.remove('active'));
-        
-        // Add active class to clicked button
-        this.classList.add('active');
-        
-        selectedGame = this.dataset.game;
-        
-        if (selectedGame === 'project-slayers') {
-          keyForm.style.display = 'flex';
-          scriptCode.textContent = '-- Enter your key above and click Generate --';
-          copyBtn.style.display = 'none';
-        } else if (selectedGame === 'grow-garden') {
-          keyForm.style.display = 'none';
-          scriptCode.textContent = 'loadstring(game:HttpGet("https://ninja974.github.io/Fire-Scripts.github.io/loaders/GAG-Loader.lua"))()';
-          copyBtn.style.display = 'inline-flex';
+        if (type === "spark") {
+          size = Math.random() * 2 + 1
+          speedX = (Math.random() - 0.5) * 1.5
+          speedY = -(Math.random() * 2 + 0.5)
+          life = Math.random() * 30 + 20
+          colorHue = Math.random() * 30 + 0
+          colorSaturation = Math.random() * 30 + 70
+          colorLightness = Math.random() * 20 + 50
+        } else if (type === "ember") {
+          size = Math.random() * 4 + 2
+          speedX = (Math.random() - 0.5) * 0.2
+          speedY = -(Math.random() * 0.5 + 0.1)
+          life = Math.random() * 200 + 150
+          colorHue = Math.random() * 40 + 10
+          colorSaturation = Math.random() * 20 + 80
+          colorLightness = Math.random() * 10 + 60
+        } else {
+          size = Math.random() * 1.5 + 0.5
+          speedX = (Math.random() - 0.5) * 0.5
+          speedY = -(Math.random() * 0.8 + 0.2)
+          life = Math.random() * 80 + 50
+          colorHue = Math.random() * 30 + 0
+          colorSaturation = Math.random() * 30 + 70
+          colorLightness = Math.random() * 20 + 50
         }
-      });
-    });
 
-    // Script generator for Project Slayers
-    document.getElementById('generateBtn').addEventListener('click', function() {
-      if (selectedGame !== 'project-slayers') return;
-      
-      const key = document.getElementById('scriptKey').value.trim();
-      if (!key) {
-        alert('Please enter your key first!');
-        return;
+        const color = `hsl(${colorHue}, ${colorSaturation}%, ${colorLightness}%)`
+
+        particles.push({
+          x,
+          y,
+          size,
+          speedX,
+          speedY,
+          color,
+          life,
+          maxLife: life,
+          alpha: 1,
+        })
       }
 
-      const code = `script_key="${key}";
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/acdced2352def79bef163e2db39d2ec5.lua"))()`;
+      const updateAndDrawParticles = () => {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 
-      scriptCode.textContent = code;
-      copyBtn.style.display = 'inline-flex';
-    });
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i]
 
-    // Copy to clipboard
-    document.getElementById('copyBtn').addEventListener('click', function() {
-      const code = scriptCode.textContent;
-      if (code.includes('-- Select a game above') || code.includes('-- Enter your key above')) {
-        alert('Please select a game and generate a script first!');
-        return;
-      }
+          p.life--
+          p.x += p.speedX
+          p.y += p.speedY
+          p.alpha = p.life / p.maxLife
 
-      navigator.clipboard.writeText(code).then(() => {
-        const btn = this;
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-        
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.style.background = '';
-        }, 2000);
-      }).catch(() => {
-        alert('Failed to copy. Please copy manually.');
-      });
-    });
+          if (p.life <= 0 || p.alpha <= 0) {
+            particles.splice(i, 1)
+            continue
+          }
 
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          ctx.save()
+          ctx.globalAlpha = p.alpha
+
+          const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size)
+          gradient.addColorStop(0, p.color)
+          gradient.addColorStop(
+            0.5,
+            `hsla(${p.color.match(/\d+/g)?.[0]}, ${p.color.match(/\d+/g)?.[1]}%, ${
+              p.color.match(/\d+/g)?.[2]
+            }%, 0.5)`,
+          )
+          gradient.addColorStop(1, "rgba(0,0,0,0)")
+
+          ctx.beginPath()
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
+          ctx.fillStyle = gradient
+          ctx.fill()
+          ctx.restore()
         }
-      });
-    });
-  </script>
-</body>
+      }
+
+      const animate = () => {
+        if (Math.random() < 0.5) {
+          createParticle(
+            Math.random() * canvas.width,
+            canvas.height,
+            "background",
+          )
+        }
+
+        if (Math.random() < 0.05) {
+          createParticle(
+            Math.random() * canvas.width,
+            canvas.height,
+            "ember",
+          )
+        }
+
+        updateAndDrawParticles()
+        animationFrameId = requestAnimationFrame(animate)
+      }
+
+      const resizeCanvas = () => {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      }
+
+      const handleMouseMove = (e) => {
+        for (let i = 0; i < 3; i++) {
+          createParticle(e.clientX, e.clientY, "spark")
+        }
+      }
+
+      resizeCanvas()
+      window.addEventListener("resize", resizeCanvas)
+      window.addEventListener("mousemove", handleMouseMove)
+      animationFrameId = requestAnimationFrame(animate)
+
+      const typewriterElement = document.querySelector(".typewriter")
+      const gameButtons = document.querySelectorAll(".game-btn")
+      const keyForm = document.getElementById("keyForm")
+      const scriptCode = document.getElementById("scriptCode")
+      const copyBtn = document.getElementById("copyBtn")
+      const scriptKeyInput = document.getElementById("scriptKey")
+      const generateBtn = document.getElementById("generateBtn")
+
+      let selectedGame = null
+
+      const texts = [
+        "Unleash your gaming potential with premium scripts",
+        "Fast, Safe, and Community Driven",
+        "Join thousands of satisfied gamers worldwide",
+        "Premium scripts crafted with passion 💙",
+      ]
+      let textIndex = 0
+      let charIndex = 0
+      let isDeleting = false
+
+      function type() {
+        const currentText = texts[textIndex]
+
+        if (isDeleting) {
+          typewriterElement.textContent = currentText.substring(0, charIndex - 1)
+          charIndex--
+        } else {
+          typewriterElement.textContent = currentText.substring(0, charIndex + 1)
+          charIndex++
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+          setTimeout(() => (isDeleting = true), 2000)
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false
+          textIndex = (textIndex + 1) % texts.length
+        }
+
+        setTimeout(type, isDeleting ? 50 : 100)
+      }
+
+      type()
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault()
+          const target = document.querySelector(this.getAttribute("href") || "")
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            })
+          }
+        })
+      })
+
+      gameButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          gameButtons.forEach((b) => b.classList.remove("active"))
+          this.classList.add("active")
+
+          const game = this.dataset.game
+          selectedGame = game
+
+          if (game === "project-slayers") {
+            keyForm.style.display = "flex"
+            scriptCode.textContent = "-- Enter your key above and click Generate --"
+            copyBtn.style.display = "none"
+          } else if (game === "grow-garden") {
+            keyForm.style.display = "none"
+            scriptCode.textContent = 'loadstring(game:HttpGet("https://ninja974.github.io/Fire-Scripts.github.io/loaders/GAG-Loader.lua"))()'
+            copyBtn.style.display = "inline-flex"
+          }
+        })
+      })
+
+      generateBtn.addEventListener("click", () => {
+        if (selectedGame !== "project-slayers") return
+
+        const key = scriptKeyInput.value.trim()
+        if (!key) {
+          alert("Please enter your key first!")
+          return
+        }
+
+        const code = `script_key="${key}";\nloadstring(game:HttpGet(\\"https://api.luarmor.net/files/v3/loaders/acdced2352def79bef163e2db39d2ec5.lua\\"))()`
+
+        scriptCode.textContent = code
+        copyBtn.style.display = "inline-flex"
+      })
+
+      copyBtn.addEventListener("click", () => {
+        const code = scriptCode.textContent
+        if (!code || code.includes("-- Select a game above") || code.includes("-- Enter your key above")) {
+          alert("Please select a game and generate a script first!")
+          return
+        }
+
+        navigator.clipboard
+          .writeText(code)
+          .then(() => {
+            const originalText = copyBtn.innerHTML
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!'
+            copyBtn.style.background = "linear-gradient(135deg, #10b981, #059669)"
+
+            setTimeout(() => {
+              copyBtn.innerHTML = originalText
+              copyBtn.style.background = ""
+            }, 2000)
+          })
+          .catch(() => {
+            alert("Failed to copy. Please copy manually.")
+          })
+      })
+    </script>
+  </body>
 </html>
