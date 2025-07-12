@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fire Scripts - Premium Gaming Scripts</title>
-
   <link rel="icon" type="image/png" href="shurkijen.png" />
-
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
@@ -78,8 +75,18 @@
   <section id="loader" class="loader-section">
     <div class="container glass-card">
       <h2 class="section-title">Universal Loader</h2>
-      <p class="section-subtitle">Copy and run in your executor</p>
+      <p class="section-subtitle">Choose a key link and run the script</p>
 
+      <div class="get-key-buttons">
+        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" target="_blank" class="btn btn-key">
+          <i class="fas fa-link"></i> Get Key (Work.ink)
+        </a>
+        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" target="_blank" class="btn btn-key">
+          <i class="fas fa-external-link-alt"></i> Get Key (Linkvertise)
+        </a>
+      </div>
+
+      <p class="section-subtitle">Then copy and run:</p>
       <div class="code-container">
 <pre class="code-block" id="loaderCode">
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts.github.io/refs/heads/main/loaders/Universal"))()
@@ -105,7 +112,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
   <script>
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -156,7 +162,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts
       });
     });
 
-    // Canvas Fire Particles
+    // Fire Canvas
     const canvas = document.getElementById("fire-canvas");
     const ctx = canvas.getContext("2d");
     let particles = [];
