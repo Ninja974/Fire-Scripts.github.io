@@ -20,6 +20,7 @@
       <li><a href="#hero">Home</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#loader">Loader</a></li>
+      <li><a href="#plans">Plans</a></li>
     </ul>
   </nav>
 
@@ -35,8 +36,8 @@
         <a href="#loader" class="btn btn-primary">
           <i class="fas fa-key"></i> Get Key
         </a>
-        <a href="https://www.paypal.com/paypalme/FireScripts/30" class="btn btn-paypal" target="_blank">
-          <i class="fab fa-paypal"></i> Buy Adless ($30)
+        <a href="#plans" class="btn btn-paypal">
+          <i class="fab fa-paypal"></i> Buy Adless 
         </a>
       </div>
     </div>
@@ -88,14 +89,57 @@
 
       <p class="section-subtitle">Then copy and run:</p>
       <div class="code-container">
-<pre class="code-block" id="loaderCode">
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts.github.io/refs/heads/main/loaders/Universal.lua"))()
-</pre>
+        <pre class="code-block" id="loaderCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts.github.io/refs/heads/main/loaders/Universal.lua"))()</pre>
       </div>
 
       <button class="btn btn-secondary" id="copyBtn">
         <i class="fas fa-copy"></i> Copy to Clipboard
       </button>
+
+      <!-- PLANS -->
+      <h3 id="plans" class="section-subtitle" style="margin-top: 60px;">Buy Adless (Plans)</h3>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
+          <h3>1 Week</h3>
+          <p>$3 USD</p>
+          <a href="https://www.paypal.com/paypalme/FireScripts/3" target="_blank" class="btn btn-paypal">
+            <i class="fab fa-paypal"></i> Buy Now
+          </a>
+        </div>
+        <div class="feature-card">
+          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
+          <h3>2 Weeks</h3>
+          <p>$5 USD</p>
+          <a href="https://www.paypal.com/paypalme/FireScripts/5" target="_blank" class="btn btn-paypal">
+            <i class="fab fa-paypal"></i> Buy Now
+          </a>
+        </div>
+        <div class="feature-card">
+          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
+          <h3>1 Month</h3>
+          <p>$8 USD</p>
+          <a href="https://www.paypal.com/paypalme/FireScripts/8" target="_blank" class="btn btn-paypal">
+            <i class="fab fa-paypal"></i> Buy Now
+          </a>
+        </div>
+        <div class="feature-card">
+          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
+          <h3>3 Months</h3>
+          <p>$15 USD</p>
+          <a href="https://www.paypal.com/paypalme/FireScripts/15" target="_blank" class="btn btn-paypal">
+            <i class="fab fa-paypal"></i> Buy Now
+          </a>
+        </div>
+        <div class="feature-card">
+          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
+          <h3>6 Months</h3>
+          <p>$25 USD</p>
+          <a href="https://www.paypal.com/paypalme/FireScripts/25" target="_blank" class="btn btn-paypal">
+            <i class="fab fa-paypal"></i> Buy Now
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -107,13 +151,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts
         <a href="#hero">Home</a>
         <a href="#why">Why Us</a>
         <a href="#loader">Loader</a>
+        <a href="#plans">Plans</a>
       </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
@@ -122,13 +166,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts
       });
     });
 
-    // Typewriter
     const typewriterElement = document.querySelector(".typewriter");
-    const texts = [
-      "Fast. Safe. Verified.",
-      "Premium Scripts for Gamers.",
-      "Unleash Your Power."
-    ];
+    const texts = ["Fast. Safe. Verified.", "Premium Scripts for Gamers.", "Unleash Your Power."];
     let textIndex = 0, charIndex = 0, isDeleting = false;
     function type() {
       const current = texts[textIndex];
@@ -140,16 +179,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts
         }
       } else {
         charIndex++;
-        if (charIndex > current.length) {
-          isDeleting = true;
-        }
+        if (charIndex > current.length) isDeleting = true;
       }
       typewriterElement.textContent = current.substring(0, charIndex);
       setTimeout(type, isDeleting ? 50 : 100);
     }
     type();
 
-    // Copy + Confetti
     const copyBtn = document.getElementById("copyBtn");
     const loaderCode = document.getElementById("loaderCode").innerText.trim();
     copyBtn.addEventListener("click", () => {
@@ -162,7 +198,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts
       });
     });
 
-    // Fire Canvas
     const canvas = document.getElementById("fire-canvas");
     const ctx = canvas.getContext("2d");
     let particles = [];
@@ -184,9 +219,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja974/Fire-Scripts
     }
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (particles.length < 80) {
-        particles.push(createParticle());
-      }
+      if (particles.length < 80) particles.push(createParticle());
       particles.forEach((p, i) => {
         p.y -= p.speedY;
         p.life--;
