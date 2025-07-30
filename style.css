@@ -1,13 +1,13 @@
 /* ─── VARIABLES ───────────────────────────── */
 :root {
-  --primary: #ff416c;
-  --accent: #ffc371;
-  --glass: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --text: #ffffff;
-  --text-muted: #a1a1aa;
-  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-  --glow: 0 0 20px rgba(255, 65, 108, 0.4);
+  --primary: #7f5af0;
+  --accent: #5eead4;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+  --glow: 0 0 15px rgba(127, 90, 240, 0.6);
 }
 
 /* ─── BASE ────────────────────────────────── */
@@ -18,12 +18,14 @@ body {
   overflow-x: hidden;
 }
 
-#fire-canvas {
+/* GALAXY CANVAS BACKGROUND */
+#galaxy-canvas {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 0;
-  pointer-events: none;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(ellipse at bottom, #0f0c29, #302b63, #24243e);
 }
 
 /* ─── NAV ─────────────────────────────────── */
@@ -55,8 +57,8 @@ body {
 }
 
 .nav a:hover {
-  color: var(--primary);
-  background: rgba(255, 65, 108, 0.1);
+  color: var(--accent);
+  background: rgba(127, 90, 240, 0.1);
 }
 
 /* ─── HERO ────────────────────────────────── */
@@ -102,7 +104,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #ff416c, #ff6b2c);
+  background: linear-gradient(135deg, #7f5af0, #5eead4);
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -118,7 +120,7 @@ body {
   position: absolute;
   top: 0; left: -100%;
   width: 100%; height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
   transition: all 0.5s ease;
 }
 
@@ -131,20 +133,18 @@ body {
   box-shadow: var(--glow);
 }
 
-.btn-key {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+.btn-key,
+.btn-paypal,
+.btn-discord,
+.btn-primary {
+  background: linear-gradient(135deg, #7f5af0, #5eead4);
 }
 
-.btn-key:hover {
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
-}
-
-.btn-paypal {
-  background: linear-gradient(135deg, #003087, #0070ba);
-}
-
-.btn-paypal:hover {
-  box-shadow: 0 0 20px rgba(0, 112, 186, 0.5);
+.btn-key:hover,
+.btn-paypal:hover,
+.btn-discord:hover,
+.btn-primary:hover {
+  box-shadow: var(--glow);
 }
 
 /* ─── SECTIONS ────────────────────────────── */
@@ -176,7 +176,7 @@ body {
 
 .feature-card:hover {
   transform: perspective(600px) rotateY(5deg) translateY(-5px);
-  box-shadow: 0 0 30px rgba(255, 65, 108, 0.5);
+  box-shadow: 0 0 30px rgba(127, 90, 240, 0.4);
 }
 
 .feature-card i {
@@ -236,7 +236,7 @@ body {
 
 .code-block {
   font-family: "JetBrains Mono", monospace;
-  color: var(--primary);
+  color: var(--accent);
   font-size: 0.9rem;
   white-space: pre-wrap;
   word-break: break-word;
@@ -246,7 +246,7 @@ body {
 .footer {
   padding: 40px 20px;
   text-align: center;
-  background: rgba(8, 5, 5, 0.5);
+  background: rgba(15, 12, 41, 0.7);
   backdrop-filter: blur(15px);
   position: relative;
   z-index: 1;
@@ -266,7 +266,7 @@ body {
 }
 
 .footer-links a:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 /* ─── RESPONSIVE ──────────────────────────── */
