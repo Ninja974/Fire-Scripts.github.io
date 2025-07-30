@@ -20,7 +20,6 @@
       <li><a href="#hero">Home</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#loader">Loader</a></li>
-      <li><a href="#plans">Plans</a></li>
     </ul>
   </nav>
 
@@ -29,17 +28,17 @@
     <div class="hero-content">
       <h1>Fire Scripts</h1>
       <p class="hero-subtitle"><span class="typewriter"></span></p>
-      <div class="hero-buttons">
-        <a href="https://discord.gg/ry9e3kSb3A" class="btn btn-discord" target="_blank">
-          <i class="fab fa-discord"></i> Join Discord
-        </a>
-        <a href="#loader" class="btn btn-primary">
-          <i class="fas fa-key"></i> Get Key
-        </a>
-        <a href="#plans" class="btn btn-paypal">
-          <i class="fab fa-paypal"></i> Buy Adless 
-        </a>
-      </div>
+        <div class="hero-buttons">
+          <a href="https://discord.gg/ry9e3kSb3A" class="btn btn-discord" target="_blank" rel="noopener">
+            <i class="fab fa-discord"></i> Join Discord
+          </a>
+          <a href="https://firescripts.sell.app/" class="btn btn-primary" target="_blank" rel="noopener">
+            <i class="fas fa-key"></i> Get Key
+          </a>
+          <a href="https://firescripts.sell.app/" class="btn btn-primary" target="_blank" rel="noopener">
+            <i class="fas fa-cart-shopping"></i> Buy Adless
+          </a>
+        </div>
     </div>
   </section>
 
@@ -79,10 +78,10 @@
       <p class="section-subtitle">Choose a key link and run the script</p>
 
       <div class="get-key-buttons">
-        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" target="_blank" class="btn btn-key">
+        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" target="_blank" rel="noopener" class="btn btn-key">
           <i class="fas fa-link"></i> Get Key (Work.ink)
         </a>
-        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" target="_blank" class="btn btn-key">
+        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" target="_blank" rel="noopener" class="btn btn-key">
           <i class="fas fa-external-link-alt"></i> Get Key (Linkvertise)
         </a>
       </div>
@@ -95,51 +94,6 @@
       <button class="btn btn-secondary" id="copyBtn">
         <i class="fas fa-copy"></i> Copy to Clipboard
       </button>
-
-      <!-- PLANS -->
-      <h3 id="plans" class="section-subtitle" style="margin-top: 60px;">Buy Adless (Plans)</h3>
-      <div class="features-grid">
-        <div class="feature-card">
-          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
-          <h3>1 Week</h3>
-          <p>$3 USD</p>
-          <a href="https://www.paypal.com/paypalme/FireScripts/3" target="_blank" class="btn btn-paypal">
-            <i class="fab fa-paypal"></i> Buy Now
-          </a>
-        </div>
-        <div class="feature-card">
-          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
-          <h3>2 Weeks</h3>
-          <p>$5 USD</p>
-          <a href="https://www.paypal.com/paypalme/FireScripts/5" target="_blank" class="btn btn-paypal">
-            <i class="fab fa-paypal"></i> Buy Now
-          </a>
-        </div>
-        <div class="feature-card">
-          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
-          <h3>1 Month</h3>
-          <p>$8 USD</p>
-          <a href="https://www.paypal.com/paypalme/FireScripts/8" target="_blank" class="btn btn-paypal">
-            <i class="fab fa-paypal"></i> Buy Now
-          </a>
-        </div>
-        <div class="feature-card">
-          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
-          <h3>3 Months</h3>
-          <p>$15 USD</p>
-          <a href="https://www.paypal.com/paypalme/FireScripts/15" target="_blank" class="btn btn-paypal">
-            <i class="fab fa-paypal"></i> Buy Now
-          </a>
-        </div>
-        <div class="feature-card">
-          <i class="fab fa-paypal" style="font-size: 2rem; color: #0070ba;"></i>
-          <h3>6 Months</h3>
-          <p>$25 USD</p>
-          <a href="https://www.paypal.com/paypalme/FireScripts/25" target="_blank" class="btn btn-paypal">
-            <i class="fab fa-paypal"></i> Buy Now
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -151,13 +105,13 @@
         <a href="#hero">Home</a>
         <a href="#why">Why Us</a>
         <a href="#loader">Loader</a>
-        <a href="#plans">Plans</a>
       </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
@@ -166,6 +120,7 @@
       });
     });
 
+    // Typewriter
     const typewriterElement = document.querySelector(".typewriter");
     const texts = ["Fast. Safe. Verified.", "Premium Scripts for Gamers.", "Unleash Your Power."];
     let textIndex = 0, charIndex = 0, isDeleting = false;
@@ -186,6 +141,7 @@
     }
     type();
 
+    // Copy loader code
     const copyBtn = document.getElementById("copyBtn");
     const loaderCode = document.getElementById("loaderCode").innerText.trim();
     copyBtn.addEventListener("click", () => {
@@ -198,6 +154,7 @@
       });
     });
 
+    // Fire canvas
     const canvas = document.getElementById("fire-canvas");
     const ctx = canvas.getContext("2d");
     let particles = [];
