@@ -1,13 +1,13 @@
 /* ─── VARIABLES ───────────────────────────── */
 :root {
-  --primary: #7f5af0;
-  --accent: #5eead4;
+  --primary: #ff4d4d; /* red */
+  --accent: #ff9900;  /* orange */
   --glass: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --text: #f1f5f9;
   --text-muted: #94a3b8;
   --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
-  --glow: 0 0 15px rgba(127, 90, 240, 0.6);
+  --glow: 0 0 15px rgba(255, 77, 77, 0.6); /* red glow */
 }
 
 /* ─── BASE ────────────────────────────────── */
@@ -25,7 +25,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: radial-gradient(ellipse at bottom, #0f0c29, #302b63, #24243e);
+  background: radial-gradient(ellipse at bottom, #290f0f, #632b2b, #3e2424);
 }
 
 /* ─── NAV ─────────────────────────────────── */
@@ -58,7 +58,7 @@ body {
 
 .nav a:hover {
   color: var(--accent);
-  background: rgba(127, 90, 240, 0.1);
+  background: rgba(255, 77, 77, 0.1);
 }
 
 /* ─── HERO ────────────────────────────────── */
@@ -104,7 +104,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #7f5af0, #5eead4);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -137,7 +137,7 @@ body {
 .btn-paypal,
 .btn-discord,
 .btn-primary {
-  background: linear-gradient(135deg, #7f5af0, #5eead4);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
 }
 
 .btn-key:hover,
@@ -176,7 +176,7 @@ body {
 
 .feature-card:hover {
   transform: perspective(600px) rotateY(5deg) translateY(-5px);
-  box-shadow: 0 0 30px rgba(127, 90, 240, 0.4);
+  box-shadow: 0 0 30px rgba(255, 77, 77, 0.4);
 }
 
 .feature-card i {
@@ -246,7 +246,7 @@ body {
 .footer {
   padding: 40px 20px;
   text-align: center;
-  background: rgba(15, 12, 41, 0.7);
+  background: rgba(41, 15, 15, 0.7);
   backdrop-filter: blur(15px);
   position: relative;
   z-index: 1;
