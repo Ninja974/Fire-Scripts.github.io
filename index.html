@@ -11,8 +11,8 @@
 </head>
 <body>
 
-  <!-- Canvas Fire -->
-  <canvas id="fire-canvas"></canvas>
+  <!-- GALAXY BACKGROUND -->
+  <canvas id="galaxy-canvas"></canvas>
 
   <!-- NAV -->
   <nav class="nav">
@@ -28,17 +28,17 @@
     <div class="hero-content">
       <h1>Fire Scripts</h1>
       <p class="hero-subtitle"><span class="typewriter"></span></p>
-        <div class="hero-buttons">
-          <a href="https://discord.gg/ry9e3kSb3A" class="btn btn-discord" target="_blank" rel="noopener">
-            <i class="fab fa-discord"></i> Join Discord
-          </a>
-          <a href="https://firescripts.sell.app/" class="btn btn-primary" target="_blank" rel="noopener">
-            <i class="fas fa-key"></i> Get Key
-          </a>
-          <a href="https://firescripts.sell.app/" class="btn btn-primary" target="_blank" rel="noopener">
-            <i class="fas fa-cart-shopping"></i> Buy Adless
-          </a>
-        </div>
+      <div class="hero-buttons">
+        <a href="https://discord.gg/ry9e3kSb3A" class="btn btn-discord" target="_blank" rel="noopener">
+          <i class="fab fa-discord"></i> Join Discord
+        </a>
+        <a href="https://firescripts.sell.app/" class="btn btn-primary" target="_blank" rel="noopener">
+          <i class="fas fa-key"></i> Get Key
+        </a>
+        <a href="https://firescripts.sell.app/" class="btn btn-primary" target="_blank" rel="noopener">
+          <i class="fas fa-cart-shopping"></i> Buy Adless
+        </a>
+      </div>
     </div>
   </section>
 
@@ -75,14 +75,11 @@
   <section id="loader" class="loader-section">
     <div class="container glass-card">
       <h2 class="section-title">Universal Loader</h2>
-      <p class="section-subtitle">Choose a key link and run the script</p>
+      <p class="section-subtitle">Get your key and run the script</p>
 
       <div class="get-key-buttons">
-        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key-sUMwDnOyEgea" target="_blank" rel="noopener" class="btn btn-key">
-          <i class="fas fa-link"></i> Get Key (Work.ink)
-        </a>
-        <a href="https://ads.luarmor.net/get_key?for=Fire_Hub_Key_Link_Vertise-XCwwBReJXQIA" target="_blank" rel="noopener" class="btn btn-key">
-          <i class="fas fa-external-link-alt"></i> Get Key (Linkvertise)
+        <a href="https://firescripts.sell.app/" target="_blank" rel="noopener" class="btn btn-key">
+          <i class="fas fa-key"></i> Get Key
         </a>
       </div>
 
@@ -109,7 +106,6 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -119,27 +115,58 @@
         target && target.scrollIntoView({ behavior: "smooth" });
       });
     });
+// Typewriter
+const typewriterElement = document.querySelector(".typewriter");
+const texts = [
+  "Fast. Safe. Verified.",
+  "Premium Scripts Crafted With <3.",
+  "Unleash Your Power.",
+  "Why Settle for Frost When You Can Have Fire?",
+  "Leaving the Competition in the Cold.",
+  "Power That Never Melts Away.",
+  "Built to Burn Through Limits.",
+  "Mediocre Scripts Go Cold.",
+  "Where Others Freeze, We Perform.",
+  "Heat That Never Dies Down.",
+  "Heating Up the Competition Daily.",
+  "Melting the Competition One Script at a Time.",
+  "Why Be Cold When You Can Be Unstoppable?",
+  "Fire Scripts – Because Frost Melts."
+];
 
-    // Typewriter
-    const typewriterElement = document.querySelector(".typewriter");
-    const texts = ["Fast. Safe. Verified.", "Premium Scripts for Gamers.", "Unleash Your Power."];
-    let textIndex = 0, charIndex = 0, isDeleting = false;
-    function type() {
-      const current = texts[textIndex];
-      if (isDeleting) {
-        charIndex--;
-        if (charIndex < 0) {
-          isDeleting = false;
-          textIndex = (textIndex + 1) % texts.length;
-        }
-      } else {
-        charIndex++;
-        if (charIndex > current.length) isDeleting = true;
+let textIndex = 0,
+    charIndex = 0,
+    isDeleting = false,
+    pause = false;
+
+function type() {
+  const current = texts[textIndex];
+
+  if (!pause) {
+    if (isDeleting) {
+      charIndex--;
+      if (charIndex < 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
       }
-      typewriterElement.textContent = current.substring(0, charIndex);
-      setTimeout(type, isDeleting ? 50 : 100);
+    } else {
+      charIndex++;
+      if (charIndex > current.length) {
+        pause = true; // Pause before deleting
+        setTimeout(() => {
+          pause = false;
+          isDeleting = true;
+        }, 2000); // <-- 2 second pause
+      }
     }
-    type();
+  }
+
+  typewriterElement.textContent = current.substring(0, charIndex);
+  setTimeout(type, isDeleting ? 50 : 100);
+}
+
+type();
+
 
     // Copy loader code
     const copyBtn = document.getElementById("copyBtn");
@@ -147,50 +174,129 @@
     copyBtn.addEventListener("click", () => {
       navigator.clipboard.writeText(loaderCode).then(() => {
         copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        confetti();
         setTimeout(() => {
           copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy to Clipboard';
         }, 2000);
       });
     });
-
-    // Fire canvas
-    const canvas = document.getElementById("fire-canvas");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    function createParticle() {
-      return {
-        x: Math.random() * canvas.width,
-        y: canvas.height + 10,
-        size: Math.random() * 2 + 1,
-        speedY: Math.random() * 0.8 + 0.2,
-        life: 100 + Math.random() * 100,
-        alpha: 1
-      };
-    }
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (particles.length < 80) particles.push(createParticle());
-      particles.forEach((p, i) => {
-        p.y -= p.speedY;
-        p.life--;
-        p.alpha = p.life / 200;
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(255, ${Math.floor(Math.random() * 80)}, 0, ${p.alpha})`;
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-        if (p.life <= 0) particles.splice(i, 1);
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
   </script>
 
+  <!-- GALAXY SCRIPT -->
+  <script>
+    (() => {
+      const canvas = document.getElementById('galaxy-canvas');
+      const ctx = canvas.getContext('2d', { alpha: true });
+
+      let stars = [];
+      const density = 0.00018;
+      const linkDist = 140;
+      const mouseLinkBoost = 80;
+      const starSpeed = 0.15;
+      let mouse = { x: -9999, y: -9999 };
+
+      function resize() {
+        const dpr = Math.max(1, window.devicePixelRatio || 1);
+        canvas.width  = Math.floor(innerWidth  * dpr);
+        canvas.height = Math.floor(innerHeight * dpr);
+        canvas.style.width  = innerWidth + 'px';
+        canvas.style.height = innerHeight + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const target = Math.floor(innerWidth * innerHeight * density);
+        stars = Array.from({ length: target }, () => makeStar());
+        drawNebula();
+      }
+
+      function makeStar() {
+        return {
+          x: Math.random() * innerWidth,
+          y: Math.random() * innerHeight,
+          vx: (Math.random() - 0.5) * starSpeed,
+          vy: (Math.random() - 0.5) * starSpeed,
+          r: Math.random() * 1.8 + 0.4,
+          hue: 200 + Math.random() * 100
+        };
+      }
+
+      function drawNebula() {
+        const g1 = ctx.createRadialGradient(innerWidth*0.25, innerHeight*0.7, 0, innerWidth*0.25, innerHeight*0.7, Math.max(innerWidth, innerHeight));
+        g1.addColorStop(0, 'rgba(94,234,212,0.10)');
+        g1.addColorStop(1, 'rgba(0,0,0,0)');
+        const g2 = ctx.createRadialGradient(innerWidth*0.75, innerHeight*0.3, 0, innerWidth*0.75, innerHeight*0.3, Math.max(innerWidth, innerHeight)*0.9);
+        g2.addColorStop(0, 'rgba(127,90,240,0.10)');
+        g2.addColorStop(1, 'rgba(0,0,0,0)');
+        const g3 = ctx.createRadialGradient(innerWidth*0.5, innerHeight*0.5, 0, innerWidth*0.5, innerHeight*0.5, Math.max(innerWidth, innerHeight));
+        g3.addColorStop(0, 'rgba(56,189,248,0.06)');
+        g3.addColorStop(1, 'rgba(0,0,0,0)');
+
+        ctx.save();
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0,0,innerWidth,innerHeight);
+
+        ctx.fillStyle = g1; ctx.fillRect(0,0,innerWidth,innerHeight);
+        ctx.fillStyle = g2; ctx.fillRect(0,0,innerWidth,innerHeight);
+        ctx.fillStyle = g3; ctx.fillRect(0,0,innerWidth,innerHeight);
+        ctx.restore();
+      }
+
+      function step() {
+        ctx.fillStyle = 'rgba(0,0,0,0.25)';
+        ctx.fillRect(0,0,innerWidth,innerHeight);
+
+        for (let s of stars) {
+          s.x += s.vx; s.y += s.vy;
+          if (s.x < 0) { s.x = innerWidth; } else if (s.x > innerWidth) { s.x = 0; }
+          if (s.y < 0) { s.y = innerHeight; } else if (s.y > innerHeight) { s.y = 0; }
+
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${s.hue}, 90%, 75%, 0.9)`;
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = `hsla(${s.hue}, 90%, 75%, 0.8)`;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+
+        for (let i = 0; i < stars.length; i++) {
+          const a = stars[i];
+          for (let j = i + 1; j < stars.length; j++) {
+            const b = stars[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const d = Math.hypot(dx, dy);
+            if (d < linkDist) {
+              const alpha = 1 - d / linkDist;
+              ctx.strokeStyle = `rgba(94,234,212,${0.25 * alpha})`;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+          const dxm = a.x - mouse.x, dym = a.y - mouse.y;
+          const dm = Math.hypot(dxm, dym);
+          if (dm < linkDist + mouseLinkBoost) {
+            const alpha = 1 - dm / (linkDist + mouseLinkBoost);
+            ctx.strokeStyle = `rgba(127,90,240,${0.45 * alpha})`;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+      window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+      window.addEventListener('resize', resize);
+
+      resize();
+      drawNebula();
+      requestAnimationFrame(step);
+    })();
+  </script>
 </body>
 </html>
